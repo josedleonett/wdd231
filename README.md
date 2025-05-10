@@ -1,2 +1,1 @@
-# wdd231-
-BYU | WDD-231 Web Frontend Development I
+# BYU | WDD-231 Web Frontend Development I
