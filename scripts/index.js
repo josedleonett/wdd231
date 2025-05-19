@@ -60,8 +60,7 @@ courses.forEach(course => {
     }
     
     courseItem.innerHTML = `
-        <h3 class="course-header">
-            <span>${course.completed ? '<i class="fas fa-award"></i>' : ""}</span>
+        <h3 class="course-header">            <span>${course.completed ? '<span class="material-icons">workspace_premium</span>' : ""}</span>
             ${course.subject} ${course.number}
         </h3>
         <div class="course-details">

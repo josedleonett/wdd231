@@ -215,9 +215,10 @@ main section {
     font-weight: 900;
 }
 
-.certificate-item h3 span i {
+.certificate-item h3 span .material-icons {
     font-size: 1.5rem;
     margin-right: 0.5rem;
+    vertical-align: middle;
 }
 
 .credits-summary {
