@@ -10,6 +10,7 @@
 
 .card:hover {
     transform: translateY(-3px);
+    -webkit-transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -44,6 +45,7 @@
 
 .card-content figure img:hover {
     transform: scale(1.05);
+    -webkit-transform: scale(1.05);
     box-shadow: var(--box-shadow);
 }
 

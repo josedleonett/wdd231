@@ -169,3 +169,9 @@ footer p:last-child {
     color: var(--text-color-light);
     transform: translateY(-1px);
 }
+
+/* Replace any instances of clip with clip-path */
+.visually-hidden {
+    clip-path: inset(100%);
+    /* remove any clip property usage */
+}
