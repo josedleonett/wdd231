@@ -216,6 +216,6 @@ main section {
     padding: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--text-color);
     border-bottom: var(--border-width) solid var(--border-color);
 }
