@@ -5,6 +5,7 @@
     box-shadow: var(--box-shadow);
     flex: 1;
     transition: var(--transition);
+    height: 100%;
 }
 
 .card:hover {
@@ -67,10 +68,16 @@ main section {
     margin-bottom: 2rem;
 }
 
-.section-introduction {
+.introduction-container {
     display: grid;
     grid-template-columns: calc(60% - 0.5rem) calc(40% - 0.5rem);
     gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.section-course-work,
+.section-location {
+    width: 100%;
 }
 
 .section-certificates {
