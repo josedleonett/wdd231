@@ -1,11 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD-231 Web Frontend Development I</title>
-</head>
-<body>
-    <h1>WDD-231 Web Frontend Development I</h1>
-</body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WDD-231 Web Frontend Development I</title>
+        <meta name="description" content="">
+        <meta name="author" content="Jose D. Leonett">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="styles/base-mobile.css">
+        <link rel="stylesheet" href="styles/index-mobile.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <script src="scripts/index.js" defer></script>
+        <script src="scripts/date.js" defer></script>
+        <script src="scripts/header.js" defer></script>
+    </head>
+
+    <body>
+        <header>
+            <div class="header-profile">
+                <img src="images/profile.jpg" alt="Profile Picture">
+                <span>Jose D. Leonett</span>
+                <button class="hamburger-button" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <nav class="header-main-navigation" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#chamber">Chamber</a></li>
+                    <li><a href="#final">Final</a></li>
+                    <li><a href="https://github.com/josedleonett">GitHub Profile</a></li>
+                    <li><a href="https://www.linkedin.com/in/josedleonett">LinkedIn</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Home</h1>
+
+            <section class="section-introduction">
+                <div class="card">
+                    <h2 class="card-title">Course Work</h2>
+                    <div class="card-content">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">Maturín, Venezuela</h2>
+                    <div class="card-content">
+                        <figure>
+                            <img src="images/maturin-cathedral.webp" alt="Maturín Cathedral, Venezuela">
+                            <figcaption>Maturín Cathedral</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+            <section class="section-certificates">
+                <div class="card">
+                    <h2 class="card-title">Web and Computer Programming Certificate</h2>
+                    <div class="card-content">
+                        <ul class="filter-buttons" aria-label="Certificate filters">
+                            <li><button type="button" class="filter-btn active" data-filter="all"
+                                    aria-pressed="true">All</button></li>
+                            <li><button type="button" class="filter-btn" data-filter="cse"
+                                    aria-pressed="false">CSE</button></li>
+                            <li><button type="button" class="filter-btn" data-filter="wdd"
+                                    aria-pressed="false">WDD</button></li>
+                        </ul>
+                        <div id="certificates_filtered_container">
+                            <div class="certificates_filtered_item">
+                                <!-- Certificate items would be listed here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; <span id="current-year"></span> Jose D. Leonett, Venezuela-Argentina</p>
+            <p>Last updated: <span id="last-updated"></span></p>
+        </footer>
+    </body>
+
 </html>
