@@ -210,3 +210,12 @@ main section {
     font-size: 1.5rem;
     margin-right: 0.5rem;
 }
+
+.credits-summary {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    border-bottom: var(--border-width) solid var(--border-color);
+}

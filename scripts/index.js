@@ -78,21 +78,35 @@ courses.forEach(course => {
     certificatesContainer.appendChild(courseItem);
 });
 
+courses.forEach(course => {
+    course.credits = 2;
+});
+
+function updateCreditsTotal(visibleCourses) {
+    const totalCredits = visibleCourses.reduce((total, course) => total + course.credits, 0);
+    document.getElementById('total-credits').textContent = totalCredits;
+}
+
 document.querySelectorAll('.filter-btn').forEach(button => {
     button.addEventListener('click', () => {
         const filter = button.dataset.filter;
         const items = certificatesContainer.querySelectorAll('.certificate-item');
+        const visibleCourses = [];
         
-        items.forEach(item => {
-            if (filter === 'all' || item.dataset.subject === filter) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
+        items.forEach((item, index) => {
+            const isVisible = filter === 'all' || item.dataset.subject === filter;
+            item.style.display = isVisible ? 'block' : 'none';
+            if (isVisible) {
+                visibleCourses.push(courses[index]);
             }
         });
+
+        updateCreditsTotal(visibleCourses);
 
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.classList.toggle('active', btn === button);
         });
     });
 });
+
+updateCreditsTotal(courses);
