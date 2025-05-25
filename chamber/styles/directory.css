@@ -101,7 +101,7 @@ body.dark-mode .sort-controls .form-control {
 }
 
 body.dark-mode .view-button {
-    border-color: var(--color-border-darker);  /* Improved from #555 for better APCA contrast */
+    border-color: var(--color-border-darker);
     color: var(--color-dark-text);
 }
 
@@ -168,29 +168,29 @@ body.dark-mode .view-button.active {
 
 
 .membership-badge.membership-level-1 {
-    background: var(--gradient-membership-bronze);
+    background-color: var(--color-membership-bronze-end);
     color: var(--color-text-inverted);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 
 .membership-badge.membership-level-2 {
-    background: var(--gradient-membership-silver);
-    color: var(--color-text);  /* Improved from #333333 for better APCA contrast */
+    background-color: var(--color-membership-silver-start);
+    color: var(--color-text-inverted);  
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 
 .membership-badge.membership-level-3 {
-    background: var(--gradient-membership-gold);
-    color: var(--color-text);  /* Improved from #333333 for better APCA contrast */
+    background-color: var(--color-membership-gold-end);
+    color: var(--color-text-inverted);  
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 
 .membership-badge.membership-level-4 {
-    background: var(--gradient-membership-platinum);
-    color: var(--color-text);  /* Improved from #333333 for better APCA contrast */
+    background-color: var(--color-membership-platinum-end);
+    color: var(--color-text);  
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
@@ -207,22 +207,22 @@ body.dark-mode .membership-badge {
 }
 
 body.dark-mode .membership-badge.membership-level-1 {
-    background: var(--gradient-dark-membership-bronze);
+    background-color: var(--color-dark-membership-bronze-end);
     color: var(--color-text-inverted);
 }
 
 body.dark-mode .membership-badge.membership-level-2 {
-    background: var(--gradient-dark-membership-silver);
+    background-color: var(--color-dark-membership-silver-end);
     color: var(--color-text-inverted);
 }
 
 body.dark-mode .membership-badge.membership-level-3 {
-    background: var(--gradient-dark-membership-gold);
+    background-color: var(--color-dark-membership-gold-end);
     color: var(--color-text-black);
 }
 
 body.dark-mode .membership-badge.membership-level-4 {
-    background: var(--gradient-dark-membership-platinum);
+    background-color: var(--color-dark-membership-platinum-end);
     color: var(--color-text-inverted);
 }
 
@@ -302,7 +302,6 @@ body.dark-mode .loading {
     gap: var(--spacing-md);
 }
 
-/* Mobile list view - horizontal compact layout */
 .directory-list.list-view .directory-item {
     display: flex;
     flex-direction: row;
@@ -383,7 +382,6 @@ body.dark-mode .loading {
     margin-top: var(--spacing-xs);
 }
 
-/* Tablet and desktop list view */
 @media screen and (min-width: 768px) {
     .directory-list.list-view .directory-item {
         min-height: 180px;
@@ -416,7 +414,6 @@ body.dark-mode .loading {
     }
   }
 
-/* Dark mode styles for list view */
 body.dark-mode .directory-list.list-view .directory-item {
     background-color: var(--color-dark-bg-secondary);
     box-shadow: var(--shadow-card-dark);
@@ -434,7 +431,6 @@ body.dark-mode .directory-list.list-view .card-description a {
     color: var(--color-dark-link);
 }
 
-/* Dark mode logo background in list view */
 body.dark-mode .directory-list.list-view .card-image img {
     background-color: var(--color-dark-bg-secondary);
 }
@@ -466,10 +462,10 @@ body.dark-mode .sort-controls label {
 
 .sort-controls select {
     padding: 0.5rem;
-    border: 1px solid var(--color-border-medium);  /* Improved from #ddd for better APCA contrast */
+    border: 1px solid var(--color-border-medium);
     border-radius: 4px;
     background-color: var(--color-bg-alt);
-    color: var(--color-text);  /* Improved from #333 for better APCA contrast */
+    color: var(--color-text);
     font-family: 'Noto Sans', sans-serif;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -481,8 +477,8 @@ body.dark-mode .sort-controls label {
 }
 
 body.dark-mode .sort-controls select {
-    background-color: var(--color-dark-bg-alt);  /* Improved from #333 for better APCA contrast */
-    border-color: var(--color-border-darker);  /* Improved from #444 for better APCA contrast */
+    background-color: var(--color-dark-bg-alt);
+    border-color: var(--color-border-darker);
     color: var(--color-dark-text-bright);
 }
 
@@ -529,7 +525,7 @@ body.dark-mode .view-button.active {
 }
 
 body.dark-mode .view-button:hover:not(.active) {
-    background-color: var(--color-text-muted);  /* Improved from #444 for better APCA contrast */
+    background-color: var(--color-text-muted);
 }
 
 .directory-item {
@@ -643,7 +639,6 @@ body.dark-mode .loading {
 
 /* ===== RESPONSIVE DESIGN FOR MOBILE ===== */
 
-/* Mobile-first responsive design for directory controls */
 @media screen and (max-width: 768px) {
     .directory-controls {
         flex-direction: column;
@@ -725,7 +720,6 @@ body.dark-mode .loading {
     }
 }
 
-/* Extra small mobile devices */
 @media screen and (max-width: 480px) {
     .directory-controls {
         padding: var(--spacing-sm);
@@ -751,7 +745,6 @@ body.dark-mode .loading {
         font-size: 1.3rem;
     }
     
-    /* Adjust hero section for small screens */
     .hero {
         padding: var(--spacing-lg) var(--spacing-md);
     }
@@ -765,7 +758,6 @@ body.dark-mode .loading {
     }
 }
 
-/* Very small screens */
 @media screen and (max-width: 360px) {
     .directory-controls {
         margin: var(--spacing-sm);
@@ -790,7 +782,6 @@ body.dark-mode .loading {
     }
 }
 
-/* Tablet and larger responsive adjustments */
 @media screen and (min-width: 769px) {
     .directory-controls {
         flex-direction: row;
@@ -827,7 +818,6 @@ body.dark-mode .loading {
 
 /* ===== ENHANCED MOBILE LIST VIEW STYLES ===== */
 
-/* Extra small mobile adjustments for list view */
 @media screen and (max-width: 480px) {
     .directory-list.list-view .directory-item {
         min-height: 100px;
@@ -859,7 +849,6 @@ body.dark-mode .loading {
     }
 }
 
-/* Very small screens list view */
 @media screen and (max-width: 360px) {
     .directory-list.list-view .directory-item {
         min-height: 90px;
@@ -886,7 +875,6 @@ body.dark-mode .loading {
     }
 }
 
-/* Additional list view enhancements */
 .directory-list.list-view .card-content::before {
     content: "";
     position: absolute;

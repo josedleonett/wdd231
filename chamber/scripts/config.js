@@ -5,7 +5,6 @@
  * by modifying the global chamberConfig object.
  */
 
-// Initialize global configuration object
 window.chamberConfig = {
     /**
      * Header Component Configuration
@@ -25,7 +24,7 @@ window.chamberConfig = {
             { href: 'directory.html', text: 'Directory' },
             { href: 'join.html', text: 'Join' },
             { href: 'discover.html', text: 'Discover' },
-            { href: 'documentation.html', text: 'Documentation' }
+            // { href: 'documentation.html', text: 'Documentation' }
         ]
     },
     
@@ -65,17 +64,15 @@ window.chamberConfig = {
      * Membership configuration
      */
     membership: {
-        // Membership levels and their properties
         levels: [
             {
                 id: 1,
                 name: 'Non-profit',
                 price: 0,
                 currency: '$',
-                period: 'yr',
-                color: {
-                    light: 'var(--gradient-membership-bronze)',
-                    dark: 'var(--gradient-membership-bronze-dark)'
+                period: 'yr',                color: {
+                    light: 'var(--color-membership-bronze-end)',
+                    dark: 'var(--color-dark-membership-bronze-end)'
                 },
                 textColor: {
                     light: 'var(--color-text-white)',
@@ -95,11 +92,11 @@ window.chamberConfig = {
                 currency: '$',
                 period: 'yr',
                 color: {
-                    light: 'var(--gradient-membership-silver)',
-                    dark: 'var(--gradient-membership-silver-dark)'
+                    light: 'var(--color-membership-silver-start)',
+                    dark: 'var(--color-dark-membership-silver-end)'
                 },
                 textColor: {
-                    light: 'var(--color-text)',
+                    light: 'var(--color-text-white)',
                     dark: 'var(--color-text-white)'
                 },
                 features: [
@@ -118,16 +115,17 @@ window.chamberConfig = {
                 currency: '$',
                 period: 'yr',
                 color: {
-                    light: 'var(--gradient-membership-gold)',
-                    dark: 'var(--gradient-membership-gold-dark)'
+                    light: 'var(--color-membership-gold-end)',
+                    dark: 'var(--color-dark-membership-gold-end)'
                 },
                 textColor: {
                     light: 'var(--color-text)',
-                    dark: 'var(--color-text-black)'
+                    dark: 'var(--color-text-white)'
                 },
                 features: [
                     'Premium directory listing with featured placement',
-                    'Chamber newsletter and all publications',                    'Priority networking events access',
+                    'Chamber newsletter and all publications',
+                    'Priority networking events access',
                     'Comprehensive social media work and campaigns',
                     'Advanced business training and workshops',
                     'Exclusive luncheon hosting opportunities',
@@ -135,10 +133,37 @@ window.chamberConfig = {
                     'Website advertising placement',
                     'Quarterly business spotlight features'
                 ]
+            },
+            {
+                id: 4,
+                name: 'Platinum',
+                price: 500,
+                currency: '$',
+                period: 'yr',
+                color: {
+                    light: 'var(--color-membership-platinum-end)',
+                    dark: 'var(--color-dark-membership-platinum-end)'
+                },
+                textColor: {
+                    light: 'var(--color-text)',
+                    dark: 'var(--color-text-inverted)'
+                },
+                features: [
+                    'Featured directory listing with premium placement',
+                    'Chamber newsletter and all publications',
+                    'VIP networking events access',
+                    'Comprehensive social media work and campaigns',
+                    'Advanced business training and workshops',
+                    'Exclusive luncheon hosting opportunities',
+                    'Event sponsorship opportunities',
+                    'Website advertising placement',
+                    'Quarterly business spotlight features',
+                    'Exclusive executive events',
+                    'Annual banner ad on chamber website'
+                ]
             }
         ],
         
-        // Helper functions
         getLevelById: function(id) {
             return this.levels.find(level => level.id === id);
         },
@@ -151,7 +176,6 @@ window.chamberConfig = {
             return this.levels.map(level => level.name);
         },
         
-        // Function to generate dynamic CSS for membership badges
         generateBadgeCSS: function() {
             const isDarkMode = document.body.classList.contains('dark-mode');
             let css = '';
@@ -174,7 +198,6 @@ window.chamberConfig = {
             return css;
         },
         
-        // Function to apply dynamic styles to the page
         applyDynamicStyles: function() {
             const styleId = 'dynamic-membership-styles';
             let styleElement = document.getElementById(styleId);
@@ -188,12 +211,9 @@ window.chamberConfig = {
             styleElement.textContent = this.generateBadgeCSS();
         },
         
-        // Function to initialize dynamic styles and set up dark mode observer
         initializeDynamicStyles: function() {
-            // Apply initial styles
             this.applyDynamicStyles();
             
-            // Set up MutationObserver to watch for dark mode changes
             const observer = new MutationObserver((mutations) => {
                 mutations.forEach((mutation) => {
                     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
@@ -202,7 +222,6 @@ window.chamberConfig = {
                 });
             });
             
-            // Start observing
             observer.observe(document.body, {
                 attributes: true,
                 attributeFilter: ['class']

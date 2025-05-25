@@ -5,10 +5,10 @@
     --color-primary-light: #0063cc;   
     --color-primary-dark: #002856;    
     
-     --color-text: #1a1a1a;            /* Improved from #121212 for better APCA contrast */
-    --color-text-light: #2c2c2c;      /* Improved from #333333 for better APCA contrast */
+     --color-text: #1a1a1a;            
+    --color-text-light: #2c2c2c;      
     --color-text-inverted: #ffffff;   
-    --color-text-muted: #404040;      /* Improved from #666 for better APCA contrast */
+    --color-text-muted: #404040;      
     --color-text-black: #000000;
     --color-text-white: #ffffff;
     --color-text-dark: #404040;
@@ -41,18 +41,18 @@
     --color-link-instagram: #c32aa3;
     --color-link-linkedin: #0a66c2;
         
-    --color-button-bg: #002347;       /* Improved from #003366 for better APCA contrast */
+    --color-button-bg: #002347;       
     --color-button-text: #ffffff;     
-    --color-button-hover: #001a2e;    /* Improved from #002347 for better APCA contrast */
+    --color-button-hover: #001a2e;    
     --color-button-cta: #0078d7;
     --color-button-cta-hover: #005a9e;
     
    
     --color-border-light: #bbbbbb;
-    --color-border-medium: #999999;   /* Improved from #bbbbbb for better APCA contrast */
+    --color-border-medium: #999999;   
     --color-border-gray: #e0e0e0;
     --color-border-dark: #555555;
-    --color-border-darker: #666666;   /* Improved from #555 for better APCA contrast */
+    --color-border-darker: #666666;
     --color-border-form: #ddd;
     
      --color-dark-bg: #1a1a1a;         
@@ -74,9 +74,9 @@
     /* Membership level colors */
     --color-membership-bronze-start: #12569f;
         --color-membership-bronze-end: #1a4697;
-    --color-membership-silver-start: #e5e4e2;
-    --color-membership-silver-end: #b8b8b8;
-    --color-membership-gold-start: #ffd700;
+    --color-membership-silver-start: #4f4f4f;
+    --color-membership-silver-end: #858585;
+    --color-membership-gold-start: #d6a400;
     --color-membership-gold-end: #ffb300;
     --color-membership-platinum-start: #e5e4e2;
     --color-membership-platinum-end: #b8b8b8;
@@ -312,7 +312,6 @@ nav ul li a.active {
     border-bottom: 3px solid var(--color-primary);
 }
 
-/* ===== HAMBURGER MENU STYLES ===== */
 .hamburger-menu {
     display: none;
     flex-direction: column;
@@ -351,7 +350,6 @@ nav ul li a.active {
     transform-origin: center;
 }
 
-/* Hamburger animation when active */
 .hamburger-menu.active .hamburger-icon span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
 }
@@ -459,7 +457,7 @@ body.dark-mode .hamburger-menu:hover {
     .nav-menu li a.active {
         background-color: var(--color-bg-accent);
         border-bottom-color: var(--color-primary);
-    }      /* Dark mode mobile navigation */
+    }
     body.dark-mode .nav-menu {
         background-color: var(--color-dark-bg-alt);
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);

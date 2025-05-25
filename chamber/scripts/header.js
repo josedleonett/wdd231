@@ -3,21 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
     window.chamberConfig = window.chamberConfig || {};
     const config = window.chamberConfig.header || {};
 
-    // Create header HTML dynamically
     function createHeader() {
         const header = document.createElement('header');
         
-        // Create header container
         const headerContainer = document.createElement('div');
         headerContainer.className = 'header-container';
         
-        // Create logo
         const logo = document.createElement('img');
         logo.src = config.logoSrc || 'images/logo.webp';
         logo.alt = config.logoAlt || 'Chamber of Commerce of Province of Cordoba logo';
         logo.className = 'logo';
         
-        // Create header text
         const headerText = document.createElement('div');
         headerText.className = 'header-text';
         
@@ -31,20 +27,16 @@ document.addEventListener('DOMContentLoaded', function() {
         headerText.appendChild(span1);
         headerText.appendChild(span2);
         
-        // Append logo and header text to header container
         headerContainer.appendChild(logo);
         headerContainer.appendChild(headerText);
-          // Create navigation
         const nav = document.createElement('nav');
         nav.className = 'main-nav';
         
-        // Create hamburger menu button
         const hamburger = document.createElement('button');
         hamburger.className = 'hamburger-menu';
         hamburger.setAttribute('aria-label', 'Toggle navigation menu');
         hamburger.setAttribute('aria-expanded', 'false');
         
-        // Create hamburger icon
         const hamburgerIcon = document.createElement('div');
         hamburgerIcon.className = 'hamburger-icon';
         for (let i = 0; i < 3; i++) {
@@ -55,34 +47,23 @@ document.addEventListener('DOMContentLoaded', function() {
           const ul = document.createElement('ul');
         ul.className = 'nav-menu';
         
-        // Create close button for mobile menu
         const closeButton = document.createElement('button');
         closeButton.className = 'nav-close-btn';
         closeButton.setAttribute('aria-label', 'Close navigation menu');
         closeButton.innerHTML = '<span class="material-symbols-outlined">close</span>';
         ul.appendChild(closeButton);
-          // Navigation links
-        const defaultNavItems = [
-            { href: 'index.html', text: 'Home' },
-            { href: 'directory.html', text: 'Directory' },
-            { href: 'join.html', text: 'Join' },
-            { href: 'discover.html', text: 'Discover' },
-            { href: 'documentation.html', text: 'Documentation' }
-        ];
-        
+
+        const defaultNavItems = window.chamberConfig.defaultNavItems;
         const navItems = config.navItems || defaultNavItems;
         
-        // Get current page
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         
-        // Create navigation items
         navItems.forEach(item => {
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = item.href;
             a.textContent = item.text;
             
-            // Add active class if on current page
             if (currentPage === item.href) {
                 a.className = 'active';
             }
@@ -91,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
             ul.appendChild(li);
         });
         
-        // Create dark mode toggle button
         const li = document.createElement('li');
         const button = document.createElement('button');
         button.id = 'dark-mode-toggle';
@@ -103,43 +83,34 @@ document.addEventListener('DOMContentLoaded', function() {
         button.appendChild(span);
         li.appendChild(button);
         ul.appendChild(li);
-          // Append hamburger and ul to nav
         nav.appendChild(hamburger);
         nav.appendChild(ul);
         
-        // Append header container and nav to header
         header.appendChild(headerContainer);
         header.appendChild(nav);
         
         return header;
     }
     
-    // Function to initialize header
     function initHeader() {
         const body = document.body;
         const existingHeader = document.querySelector('header');
         
         if (existingHeader) {
-            // Replace existing header
             const newHeader = createHeader();
             body.replaceChild(newHeader, existingHeader);
         } else {
-            // Insert at beginning of body
             const newHeader = createHeader();
             body.insertBefore(newHeader, body.firstChild);
         }
-          // Initialize dark mode toggle
         initDarkModeToggle();
         
-        // Initialize hamburger menu
         initHamburgerMenu();
     }
     
-    // Function to initialize dark mode toggle
     function initDarkModeToggle() {
         const darkModeToggle = document.getElementById('dark-mode-toggle');
         
-        // Check for saved preference
         const darkModePref = localStorage.getItem('darkMode');
         if (darkModePref === 'enabled') {
             document.body.classList.add('dark-mode');
@@ -153,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
             darkModeToggle.addEventListener('click', function() {
                 document.body.classList.toggle('dark-mode');
                 
-                // Update icon based on mode
                 const icon = this.querySelector('.material-symbols-outlined');
                 if (icon) {
                     if (document.body.classList.contains('dark-mode')) {
@@ -165,14 +135,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             });
-        }    }
-      // Function to initialize hamburger menu
+        }
+    }
+
     function initHamburgerMenu() {
         const hamburger = document.querySelector('.hamburger-menu');
         const navMenu = document.querySelector('.nav-menu');
         const closeBtn = document.querySelector('.nav-close-btn');
         
-        // Function to close menu
         function closeMenu() {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
@@ -180,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         }
         
-        // Function to open menu
         function openMenu() {
             navMenu.classList.add('active');
             hamburger.classList.add('active');
@@ -192,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (hamburger && navMenu) {
             hamburger.addEventListener('click', function() {
-                // Toggle menu visibility
                 const isActive = navMenu.classList.contains('active');
                 if (isActive) {
                     closeMenu();
@@ -201,25 +169,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Close button functionality
             if (closeBtn) {
                 closeBtn.addEventListener('click', closeMenu);
             }
             
-            // Close menu when clicking on navigation links
             const navLinks = navMenu.querySelectorAll('a');
             navLinks.forEach(link => {
                 link.addEventListener('click', closeMenu);
             });
             
-            // Close menu when clicking outside
             document.addEventListener('click', function(event) {
                 if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
                     closeMenu();
                 }
             });
             
-            // Close menu on window resize to desktop size
             window.addEventListener('resize', function() {
                 if (window.innerWidth > 768) {
                     closeMenu();
@@ -228,6 +192,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initialize header
     initHeader();
 });
