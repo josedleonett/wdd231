@@ -1,0 +1,344 @@
+.join-form-container {
+    background-color: var(--color-bg-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-card);
+    padding: 2rem;
+    margin: 2rem 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .join-form-container {
+    background-color: var(--color-dark-bg-secondary);
+    box-shadow: var(--shadow-card-dark);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+    font-size: 1.05rem;
+}
+
+body.dark-mode .form-group label {
+    color: var(--color-dark-text);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.85rem;
+    border: 2px solid var(--color-border-medium);
+    border-radius: 4px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.05rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    color: var(--color-text);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-focus-ring);
+}
+
+body.dark-mode .form-control {
+    background-color: var(--color-dark-bg-secondary);
+    color: var(--color-dark-text);
+    border-color: var(--color-border-dark);
+}
+
+body.dark-mode .form-control:focus {
+    border-color: var(--color-dark-accent);
+    box-shadow: var(--shadow-focus-ring-dark);
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+}
+
+.radio-option:focus-within {
+    background-color: var(--color-bg-focus-light);
+    outline: 2px solid var(--color-primary-light);
+}
+
+.radio-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.radio-option label {
+    font-size: 1.05rem;
+    cursor: pointer;
+}
+
+.membership-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    align-items: stretch;
+}
+
+.membership-card {
+    background-color: var(--color-bg-light-gray);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 1px solid var(--color-border-light);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Card content wrapper for better flexbox organization */
+.membership-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.membership-card .membership-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0.5rem 1rem;
+    border-radius: 0 8px 0 1rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-normal);
+}
+
+.membership-card .membership-badge.membership-level-1 {
+    background: var(--gradient-membership-bronze);
+    color: var(--color-text-white);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.membership-card .membership-badge.membership-level-2 {
+    background: var(--gradient-membership-silver);
+    color: var(--color-text-black);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.membership-card .membership-badge.membership-level-3 {
+    background: var(--gradient-membership-gold);
+    color: var(--color-text-black);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.membership-card:hover .membership-badge {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .membership-card .membership-badge {
+    border-left-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .membership-card .membership-badge.membership-level-1 {
+    background: var(--gradient-membership-bronze-dark);
+    color: var(--color-text-white);
+}
+
+body.dark-mode .membership-card .membership-badge.membership-level-2 {
+    background: var(--gradient-membership-silver-dark);
+    color: var(--color-text-white);
+}
+
+body.dark-mode .membership-card .membership-badge.membership-level-3 {
+    background: var(--gradient-membership-gold-dark);
+    color: var(--color-text-black);
+}
+
+.membership-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary-light);
+}
+
+.membership-card:focus-within {
+    box-shadow: var(--shadow-focus-ring);
+    outline: none;
+}
+
+body.dark-mode .membership-card {
+    background-color: var(--color-dark-bg-tertiary);
+    box-shadow: var(--shadow-card-dark);
+    border-color: var(--color-border-dark-light);
+}
+
+body.dark-mode .membership-card:hover {
+    border-color: var(--color-dark-accent);
+}
+
+.membership-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Volkhov', serif;
+    font-weight: 700;
+}
+
+body.dark-mode .membership-card h3 {
+    color: var(--color-dark-accent);
+}
+
+.membership-price {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: var(--color-text);
+}
+
+body.dark-mode .membership-price {
+    color: var(--color-dark-text);
+}
+
+.membership-features {
+    list-style-type: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.membership-features li {
+    margin-bottom: 0.7rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.membership-features li:before {
+    content: '✓';
+    color: var(--color-primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+body.dark-mode .membership-features li:before {
+    color: var(--color-link-twitter);
+}
+
+.join-button {
+    background-color: var(--color-button-bg);
+    color: var(--color-button-text);
+    border: 2px solid transparent;
+    padding: 0.85rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    margin-top: auto;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+}
+
+.join-button:hover {
+    background-color: var(--color-button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.join-button:focus {
+    outline: none;
+    box-shadow: var(--shadow-focus-ring);
+    border-color: white;
+}
+
+body.dark-mode .join-button {
+    background-color: var(--color-dark-accent);
+    color: var(--color-text-black);
+}
+
+body.dark-mode .join-button:hover {
+    background-color: var(--color-link-twitter);
+}
+
+body.dark-mode .join-button:focus {
+    box-shadow: var(--shadow-focus-ring-light);
+}
+
+.form-control.is-invalid {
+    border-color: var(--color-error);
+    border-width: 2px;
+}
+
+.invalid-feedback {
+    color: var(--color-error);
+    font-size: 0.95rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+}
+
+body.dark-mode .invalid-feedback {
+    color: var(--color-error-light);
+}
+
+.required-field::after {
+    content: "*";
+    color: var(--color-error);
+    margin-left: 0.25rem;
+    font-size: 1.2rem;
+}
+
+body.dark-mode .required-field::after {
+    color: var(--color-error-light);
+}
+
+.form-note {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+body.dark-mode .form-note {
+    color: var(--color-text-muted);
+}
+
+@media screen and (max-width: 768px) {
+    .membership-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

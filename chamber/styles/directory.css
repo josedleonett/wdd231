@@ -1,0 +1,912 @@
+.directory {
+    margin-top: var(--spacing-xl);
+}
+
+.directory h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+    font-family: 'DM Serif Text', serif;
+}
+
+body.dark-mode .directory h2 {
+    color: var(--color-dark-accent);
+}
+
+
+.directory-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.sort-controls label {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-text);
+}
+
+.sort-controls .form-control {
+    padding: 0.6rem;
+    border: 2px solid var(--color-border-light);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
+    font-size: 1rem;
+    min-width: 150px;
+}
+
+.sort-controls .form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 54, 122, 0.2);
+}
+
+body.dark-mode .sort-controls label {
+    color: var(--color-dark-text);
+}
+
+body.dark-mode .sort-controls .form-control {
+    background-color: var(--color-dark-bg-alt);
+    color: var(--color-dark-text);
+    border-color: var(--color-dark-border);
+}
+
+
+.view-controls {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.view-button {
+    background-color: transparent;
+    border: 2px solid var(--color-text-light);
+    padding: 0.6rem;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.view-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.view-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 54, 122, 0.3);
+    border-color: var(--color-primary);
+}
+
+.view-button.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    font-weight: 700;
+}
+
+body.dark-mode .view-button {
+    border-color: var(--color-border-darker);  /* Improved from #555 for better APCA contrast */
+    color: var(--color-dark-text);
+}
+
+body.dark-mode .view-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-dark-accent);
+    color: var(--color-dark-accent);
+}
+
+body.dark-mode .view-button:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .view-button.active {
+    background-color: var(--color-dark-accent);
+    color: var(--color-text-black);
+    border-color: var(--color-dark-accent);
+}
+
+body.dark-mode .view-button.active {
+    background-color: var(--color-dark-accent);
+    border-color: var(--color-dark-accent);
+}
+
+
+.directory-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.directory-list.list-view {
+    grid-template-columns: 1fr;
+}
+
+
+.directory-item {
+    background-color: var(--color-bg-alt);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);    border: 1px solid var(--color-border-gray);
+    position: relative;
+}
+
+
+.membership-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0.5rem 1rem;
+    border-radius: 0 var(--border-radius-md) 0 1rem;
+    font-size: 0.9rem;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-normal);
+}
+
+
+.membership-badge.membership-level-1 {
+    background: var(--gradient-membership-bronze);
+    color: var(--color-text-inverted);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+.membership-badge.membership-level-2 {
+    background: var(--gradient-membership-silver);
+    color: var(--color-text);  /* Improved from #333333 for better APCA contrast */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+
+.membership-badge.membership-level-3 {
+    background: var(--gradient-membership-gold);
+    color: var(--color-text);  /* Improved from #333333 for better APCA contrast */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+
+.membership-badge.membership-level-4 {
+    background: var(--gradient-membership-platinum);
+    color: var(--color-text);  /* Improved from #333333 for better APCA contrast */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+
+.directory-item:hover .membership-badge {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+body.dark-mode .membership-badge {
+    border-left-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .membership-badge.membership-level-1 {
+    background: var(--gradient-dark-membership-bronze);
+    color: var(--color-text-inverted);
+}
+
+body.dark-mode .membership-badge.membership-level-2 {
+    background: var(--gradient-dark-membership-silver);
+    color: var(--color-text-inverted);
+}
+
+body.dark-mode .membership-badge.membership-level-3 {
+    background: var(--gradient-dark-membership-gold);
+    color: var(--color-text-black);
+}
+
+body.dark-mode .membership-badge.membership-level-4 {
+    background: var(--gradient-dark-membership-platinum);
+    color: var(--color-text-inverted);
+}
+
+
+.directory-list.list-view .membership-badge {
+    top: 0;
+    right: 0;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0 var(--border-radius-sm) 0 0.8rem;
+}
+
+
+.loading {
+    text-align: center;
+    padding: var(--spacing-xl);
+    grid-column: 1 / -1;
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+body.dark-mode .loading {
+    color: var(--color-dark-text);
+}
+
+.social-icons li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-bg-alt);
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.social-icons li a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+.social-icons li a[aria-label="Facebook"] {
+    color: var(--color-link-facebook);
+}
+
+.social-icons li a[aria-label="Twitter"] {
+    color: var(--color-link-twitter);
+}
+
+.social-icons li a[aria-label="Instagram"] {
+    color: var(--color-link-instagram);
+}
+
+.social-icons li a[aria-label="LinkedIn"] {
+    color: var(--color-link-linkedin);
+}
+
+.social-icons .fab {
+    font-size: 1.2rem;
+}
+
+
+.directory-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+
+.directory-list.list-view {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+/* Mobile list view - horizontal compact layout */
+.directory-list.list-view .directory-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: var(--color-bg-alt);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    min-height: 120px;
+    max-height: 140px;
+}
+
+.directory-list.list-view .directory-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.directory-list.list-view .card-image {
+    width: 100px;
+    min-width: 100px;
+    height: 120px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.directory-list.list-view .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform var(--transition-normal);
+    background-color: var(--color-bg-white);
+    padding: var(--spacing-xs);
+}
+
+.directory-list.list-view .directory-item:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.directory-list.list-view .card-content {
+    padding: var(--spacing-sm) var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.directory-list.list-view .card-title {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.2;
+    color: var(--color-text-black);
+    font-weight: 700;
+}
+
+.directory-list.list-view .card-description {
+    flex: 1;
+    overflow: hidden;
+}
+
+.directory-list.list-view .card-description p {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin: var(--spacing-xs) 0;
+    color: var(--color-text-dark);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.directory-list.list-view .card-description a {
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-top: var(--spacing-xs);
+}
+
+/* Tablet and desktop list view */
+@media screen and (min-width: 768px) {
+    .directory-list.list-view .directory-item {
+        min-height: 180px;
+        max-height: none;
+    }
+    
+    .directory-list.list-view .card-image {
+        width: 200px;
+        min-width: 200px;
+        height: 180px;
+    }
+    
+    .directory-list.list-view .card-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .directory-list.list-view .card-title {
+        font-size: 1.3rem;
+        margin-bottom: var(--spacing-sm);
+    }
+      .directory-list.list-view .card-description p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+    
+    .directory-list.list-view .card-description a {
+        font-size: 0.9rem;
+    }
+  }
+
+/* Dark mode styles for list view */
+body.dark-mode .directory-list.list-view .directory-item {
+    background-color: var(--color-dark-bg-secondary);
+    box-shadow: var(--shadow-card-dark);
+}
+
+body.dark-mode .directory-list.list-view .card-title {
+    color: var(--color-dark-text-light);
+}
+
+body.dark-mode .directory-list.list-view .card-description p {
+    color: var(--color-dark-text-secondary);
+}
+
+body.dark-mode .directory-list.list-view .card-description a {
+    color: var(--color-dark-link);
+}
+
+/* Dark mode logo background in list view */
+body.dark-mode .directory-list.list-view .card-image img {
+    background-color: var(--color-dark-bg-secondary);
+}
+
+
+.directory-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sort-controls label {
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+body.dark-mode .sort-controls label {
+    color: var(--color-dark-text-light);
+}
+
+.sort-controls select {
+    padding: 0.5rem;
+    border: 1px solid var(--color-border-medium);  /* Improved from #ddd for better APCA contrast */
+    border-radius: 4px;
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);  /* Improved from #333 for better APCA contrast */
+    font-family: 'Noto Sans', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sort-controls select:focus {
+    outline: none;
+    border-color: var(--color-link-blue);
+    box-shadow: 0 0 0 3px rgba(0, 120, 215, 0.2);
+}
+
+body.dark-mode .sort-controls select {
+    background-color: var(--color-dark-bg-alt);  /* Improved from #333 for better APCA contrast */
+    border-color: var(--color-border-darker);  /* Improved from #444 for better APCA contrast */
+    color: var(--color-dark-text-bright);
+}
+
+body.dark-mode .sort-controls select:focus {
+    border-color: var(--color-link-light-blue);
+    box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.2);
+}
+
+.view-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-button {
+    background-color: transparent;
+    border: 1px solid var(--color-border-form);
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.view-button.active {
+    color: var(--color-text-inverted);
+    border-color: var(--color-link-blue);
+}
+
+.view-button:hover:not(.active) {
+    background-color: var(--color-bg-very-light);
+}
+
+body.dark-mode .view-button {
+    border-color: var(--color-dark-border);
+    color: var(--color-dark-text-bright);
+}
+
+body.dark-mode .view-button.active {
+    background-color: var(--color-link-light-blue);
+    color: var(--color-text-dark);
+    border-color: var(--color-link-light-blue);
+}
+
+body.dark-mode .view-button:hover:not(.active) {
+    background-color: var(--color-text-muted);  /* Improved from #444 for better APCA contrast */
+}
+
+.directory-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px var(--color-shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--color-bg-alt);
+}
+
+.directory-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--color-shadow-medium);
+}
+
+.card-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.directory-item:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--color-text-black);
+    font-size: 1.3rem;
+}
+
+.card-description p {
+    margin: 0.5rem 0;
+    color: var(--color-text-dark);
+    font-size: 0.9rem;
+}
+
+.card-description a {
+    color: var(--color-link);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+    padding: 0.2rem 0;
+    display: inline-block;
+}
+
+.card-description a:hover, 
+.card-description a:focus {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 70, 150, 0.3);
+    border-radius: 2px;
+}
+
+body.dark-mode .card-description a {
+    color: var(--color-dark-link);
+}
+
+body.dark-mode .card-description a:hover,
+body.dark-mode .card-description a:focus {
+    color: var(--color-link-twitter);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+    grid-column: 1 / -1;
+}
+
+
+body.dark-mode .directory-item {
+    background-color: var(--color-dark-bg-secondary);
+    box-shadow: var(--shadow-card-dark);
+}
+
+body.dark-mode .card-title {
+    color: var(--color-dark-text-light);
+}
+
+body.dark-mode .card-description p {
+    color: var(--color-dark-text-secondary);
+}
+
+body.dark-mode .card-description a {
+    color: var(--color-link-twitter);
+}
+
+body.dark-mode .card-description a:hover {
+    color: var(--color-link-twitter);
+}
+
+body.dark-mode .loading {
+    color: var(--color-dark-text-secondary);
+}
+
+/* ===== RESPONSIVE DESIGN FOR MOBILE ===== */
+
+/* Mobile-first responsive design for directory controls */
+@media screen and (max-width: 768px) {
+    .directory-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md);
+        background-color: var(--color-bg-alt);
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-card);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .sort-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-sm);
+        width: 100%;
+    }
+    
+    .sort-controls label {
+        font-size: 1rem;
+        text-align: center;
+        font-weight: 600;
+    }
+    
+    .sort-controls .form-control {
+        width: 100%;
+        min-width: unset;
+        padding: var(--spacing-md);
+        font-size: 1.1rem;
+        text-align: center;
+        border-radius: var(--border-radius-md);
+        border: 2px solid var(--color-border-light);
+    }
+    
+    .view-controls {
+        justify-content: center;
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-sm);
+    }
+    
+    .view-button {
+        min-width: 60px;
+        min-height: 50px;
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius-md);
+        font-size: 1.2rem;
+        border: 2px solid var(--color-border-light);
+        flex: 1;
+        max-width: 120px;
+    }
+    
+    .view-button .material-symbols-outlined {
+        font-size: 1.5rem;
+    }
+    
+    /* Dark mode mobile adjustments */
+    body.dark-mode .directory-controls {
+        background-color: var(--color-dark-bg-alt);
+        box-shadow: var(--shadow-card-dark);
+    }
+    
+    body.dark-mode .sort-controls .form-control {
+        background-color: var(--color-dark-bg-card);
+        border-color: var(--color-dark-border);
+        color: var(--color-dark-text);
+    }
+    
+    body.dark-mode .view-button {
+        border-color: var(--color-dark-border);
+        background-color: var(--color-dark-bg-card);
+        color: var(--color-dark-text);
+    }
+    
+    body.dark-mode .view-button.active {
+        background-color: var(--color-dark-accent);
+        border-color: var(--color-dark-accent);
+        color: var(--color-text-white);
+    }
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 480px) {
+    .directory-controls {
+        padding: var(--spacing-sm);
+        margin: var(--spacing-md) var(--spacing-sm);
+    }
+    
+    .sort-controls .form-control {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 1rem;
+    }
+    
+    .view-controls {
+        gap: var(--spacing-xs);
+    }
+    
+    .view-button {
+        min-width: 50px;
+        min-height: 45px;
+        padding: var(--spacing-sm);
+    }
+    
+    .view-button .material-symbols-outlined {
+        font-size: 1.3rem;
+    }
+    
+    /* Adjust hero section for small screens */
+    .hero {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 360px) {
+    .directory-controls {
+        margin: var(--spacing-sm);
+        padding: var(--spacing-xs);
+    }
+    
+    .sort-controls label {
+        font-size: 0.9rem;
+    }
+    
+    .sort-controls .form-control {
+        font-size: 0.9rem;
+    }
+    
+    .view-button {
+        min-width: 45px;
+        min-height: 40px;
+    }
+    
+    .view-button .material-symbols-outlined {
+        font-size: 1.1rem;
+    }
+}
+
+/* Tablet and larger responsive adjustments */
+@media screen and (min-width: 769px) {
+    .directory-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+    }
+    
+    .sort-controls {
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+    }
+    
+    .sort-controls .form-control {
+        width: auto;
+        min-width: 200px;
+        text-align: left;
+    }
+    
+    .view-controls {
+        margin-top: 0;
+    }
+    
+    .view-button {
+        flex: none;
+        max-width: none;
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* ===== ENHANCED MOBILE LIST VIEW STYLES ===== */
+
+/* Extra small mobile adjustments for list view */
+@media screen and (max-width: 480px) {
+    .directory-list.list-view .directory-item {
+        min-height: 100px;
+        max-height: 120px;
+    }
+    
+    .directory-list.list-view .card-image {
+        width: 80px;
+        min-width: 80px;
+        height: 100px;
+    }
+    
+    .directory-list.list-view .card-content {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .directory-list.list-view .card-title {
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+    }
+    
+    .directory-list.list-view .card-description p {
+        font-size: 0.75rem;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+    }
+      .directory-list.list-view .card-description a {
+        font-size: 0.7rem;
+    }
+}
+
+/* Very small screens list view */
+@media screen and (max-width: 360px) {
+    .directory-list.list-view .directory-item {
+        min-height: 90px;
+        max-height: 110px;
+    }
+    
+    .directory-list.list-view .card-image {
+        width: 70px;
+        min-width: 70px;
+        height: 90px;
+    }
+    
+    .directory-list.list-view .card-content {
+        padding: 4px var(--spacing-xs);
+    }
+    
+    .directory-list.list-view .card-title {
+        font-size: 0.85rem;
+        line-height: 1.1;
+    }
+      .directory-list.list-view .card-description p {
+        font-size: 0.7rem;
+        margin: 2px 0;
+    }
+}
+
+/* Additional list view enhancements */
+.directory-list.list-view .card-content::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-light));
+    border-radius: 0 2px 2px 0;
+}
+
+.directory-list.list-view .directory-item {
+    position: relative;
+    border-left: 3px solid var(--color-primary);
+}
+
+body.dark-mode .directory-list.list-view .directory-item {
+    border-left-color: var(--color-dark-accent);
+}
+
+body.dark-mode .directory-list.list-view .card-content::before {
+    background: linear-gradient(to bottom, var(--color-dark-accent), var(--color-dark-link));
+}

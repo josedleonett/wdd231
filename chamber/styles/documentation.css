@@ -1,0 +1,90 @@
+/* Documentation page styles */
+.documentation-section {
+    margin: var(--spacing-xl) 0;
+}
+
+.documentation-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+}
+
+@media screen and (min-width: 1024px) {
+    .documentation-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.documentation-item {
+    background-color: var(--color-bg-alt);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-card);
+}
+
+body.dark-mode .documentation-item {
+    background-color: var(--color-dark-bg-alt);
+    box-shadow: var(--shadow-card-dark);
+}
+
+.documentation-item h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-family: 'Volkhov', serif;
+}
+
+body.dark-mode .documentation-item h3 {
+    color: var(--color-dark-accent);
+}
+
+.documentation-item p {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+}
+
+body.dark-mode .documentation-item p {
+    color: var(--color-dark-text);
+}
+
+.documentation-item ol,
+.documentation-item ul {
+    margin-left: var(--spacing-lg);    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+}
+
+body.dark-mode .documentation-item ol,
+body.dark-mode .documentation-item ul {
+    color: var(--color-dark-text);
+}
+
+.code-example {
+    background-color: var(--color-bg-light-gray);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-md);
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin: var(--spacing-md) 0;
+    white-space: pre;
+    color: var(--color-text);
+    border-left: 4px solid var(--color-primary);
+}
+
+body.dark-mode .code-example {
+    background-color: var(--color-dark-bg-tertiary);
+    color: var(--color-dark-text);
+    border-left-color: var(--color-dark-accent);
+}
+
+code {
+    background-color: var(--color-bg-light-gray);
+    padding: calc(var(--spacing-xs) / 2) var(--spacing-xs);
+    border-radius: 3px;
+    font-family: monospace;
+    color: var(--color-code-text);
+}
+
+body.dark-mode code {
+    background-color: var(--color-dark-bg-tertiary);
+    color: var(--color-code-text-dark);
+}

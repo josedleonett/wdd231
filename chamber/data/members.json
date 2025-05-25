@@ -1,0 +1,90 @@
+[    {
+        "name": "TechNova Solutions",
+        "address": "123 Innovation Drive, Springfield, OR 97477",
+        "phone": "(541) 555-1234",
+        "website": "https://www.technovasolutions.com",
+        "image": "images/members-logos/technova-solutions-logo.svg",
+        "membershipLevel": 3,
+        "description": "Leading provider of software development and IT consulting services",
+        "yearFounded": 2010,
+        "industry": "Technology",
+        "employees": 120
+    },    {
+        "name": "Green Valley Landscaping",
+        "address": "456 Garden Way, Springfield, OR 97478",
+        "phone": "(541) 555-5678",
+        "website": "https://www.greenvalleylandscaping.com",
+        "image": "images/members-logos/green-valley-landscaping-logo.svg",
+        "membershipLevel": 1,
+        "description": "Professional landscaping and garden maintenance services",
+        "yearFounded": 2005,
+        "industry": "Landscaping",
+        "employees": 25
+    },    {
+        "name": "Riverside Medical Center",
+        "address": "789 Health Parkway, Springfield, OR 97477",
+        "phone": "(541) 555-9012",
+        "website": "https://www.riversidemedical.org",
+        "image": "images/members-logos/riverside-medical-center-logo.svg",
+        "membershipLevel": 3,
+        "description": "Comprehensive healthcare services for the entire family",
+        "yearFounded": 1985,
+        "industry": "Healthcare",
+        "employees": 350
+    },    {
+        "name": "First Community Bank",
+        "address": "101 Financial Street, Springfield, OR 97478",
+        "phone": "(541) 555-3456",
+        "website": "https://www.firstcommunitybank.com",
+        "image": "images/members-logos/first-community-bank-logo.svg",
+        "membershipLevel": 2,
+        "description": "Local banking services with a community focus",
+        "yearFounded": 1972,
+        "industry": "Financial Services",
+        "employees": 85
+    },    {
+        "name": "Cornerstone Construction",
+        "address": "234 Builder Avenue, Springfield, OR 97477",
+        "phone": "(541) 555-7890",
+        "website": "https://www.cornerstoneconstruction.com",
+        "image": "images/members-logos/cornerstone-construction-logo.svg",
+        "membershipLevel": 2,
+        "description": "Quality residential and commercial construction services",
+        "yearFounded": 1998,
+        "industry": "Construction",
+        "employees": 75
+    },    {
+        "name": "Mountain Brew Coffee",
+        "address": "567 Espresso Lane, Springfield, OR 97478",
+        "phone": "(541) 555-2345",
+        "website": "https://www.mountainbrew.com",
+        "image": "images/members-logos/mountain-brew-coffee-logo.svg",
+        "membershipLevel": 1,
+        "description": "Locally roasted coffee and cozy café environment",
+        "yearFounded": 2015,
+        "industry": "Food & Beverage",
+        "employees": 18
+    },    {
+        "name": "Evergreen Insurance Agency",
+        "address": "890 Protection Boulevard, Springfield, OR 97477",
+        "phone": "(541) 555-6789",
+        "website": "https://www.evergreeninsurance.com",
+        "image": "images/members-logos/evergreen-insurance-agency-logo.svg",
+        "membershipLevel": 1,
+        "description": "Comprehensive insurance solutions for home, auto, and business",
+        "yearFounded": 2003,
+        "industry": "Insurance",
+        "employees": 32
+    },    {
+        "name": "Sunshine Daycare Center",
+        "address": "432 Children's Way, Springfield, OR 97478",
+        "phone": "(541) 555-0123",
+        "website": "https://www.sunshinedaycare.com",
+        "image": "images/members-logos/sunshine-daycare-center-logo.svg",
+        "membershipLevel": 2,
+        "description": "Quality childcare and early education programs",
+        "yearFounded": 2008,
+        "industry": "Education",
+        "employees": 22
+    }
+]

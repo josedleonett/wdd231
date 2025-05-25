@@ -1,0 +1,89 @@
+/* Mobile-specific styles for directory page (max-width: 320px) */
+
+/* Adjust directory grid for very small screens */
+.directory-list {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-xs);
+}
+
+/* Make cards more compact on very small screens */
+.directory-item {
+    max-width: 100%;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-image {
+    height: 120px;
+}
+
+.card-content {
+    padding: var(--spacing-sm);
+}
+
+.card-title {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.3;
+}
+
+.card-description p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin: var(--spacing-xs) 0;
+}
+
+.card-description a {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs);
+}
+
+/* Very compact directory controls for extra small screens */
+.directory-controls {
+    margin: var(--spacing-xs);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-sm);
+}
+
+.sort-controls label {
+    font-size: 0.85rem;
+}
+
+.sort-controls .form-control {
+    font-size: 0.85rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.view-controls {
+    gap: var(--spacing-xs);
+}
+
+.view-button {
+    min-width: 40px;
+    min-height: 35px;
+    padding: var(--spacing-xs);
+}
+
+.view-button .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+/* Hero section adjustments for very small screens */
+.hero {
+    padding: var(--spacing-md) var(--spacing-sm);
+}
+
+.hero h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+#button-cta {
+    font-size: 1rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+}
