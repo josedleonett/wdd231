@@ -1,13 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Global configuration object for footer settings
     window.chamberConfig = window.chamberConfig || {};
     const config = window.chamberConfig.footer || {};
     
-    // Function to create footer HTML dynamically
     function createFooter() {
         const footer = document.createElement('footer');
         
-        // Create company info section
         const companyInfoDiv = document.createElement('div');
         companyInfoDiv.className = 'footer-company-info';
         
@@ -34,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         companyInfoDiv.appendChild(companyTitle);
         companyInfoDiv.appendChild(address);
         
-        // Create social media section
         const socialMediaDiv = document.createElement('div');
         socialMediaDiv.className = 'footer-social-media';
         
@@ -44,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const socialIcons = document.createElement('ul');
         socialIcons.className = 'social-icons';
         
-        // Social media links
         const defaultSocialLinks = [
             { href: 'https://www.facebook.com/chambercordoba', label: 'Facebook', icon: 'facebook-f' },
             { href: 'https://www.twitter.com/chambercordoba', label: 'Twitter', icon: 'twitter' },
@@ -72,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
         socialMediaDiv.appendChild(socialTitle);
         socialMediaDiv.appendChild(socialIcons);
         
-        // Create author info section
         const authorInfoDiv = document.createElement('div');
         authorInfoDiv.className = 'footer-author-info';
         
@@ -99,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
         authorInfoDiv.appendChild(website);
         authorInfoDiv.appendChild(lastMod);
         
-        // Append all sections to footer
         footer.appendChild(companyInfoDiv);
         footer.appendChild(socialMediaDiv);
         footer.appendChild(authorInfoDiv);
@@ -107,41 +100,33 @@ document.addEventListener('DOMContentLoaded', function() {
         return footer;
     }
     
-    // Function to initialize footer
     function initFooter() {
         const body = document.body;
         const existingFooter = document.querySelector('footer');
         
         if (existingFooter) {
-            // Replace existing footer
             const newFooter = createFooter();
             body.replaceChild(newFooter, existingFooter);
         } else {
-            // Insert before end of body
             const newFooter = createFooter();
             body.appendChild(newFooter);
         }
         
-        // Update year and last modification date
         updateFooterInfo();
     }
     
-    // Function to update footer information
     function updateFooterInfo() {
-        // Set current year in footer
         const currentYearElement = document.getElementById('current-year');
         if (currentYearElement) {
             const year = new Date().getFullYear();
             currentYearElement.textContent = year + ' ' + (config.companyName || 'Chamber of Commerce of Province of Cordoba');
         }
 
-        // Set last modification date in footer
         const lastModificationElement = document.getElementById('last-modification-date');
         if (lastModificationElement) {
             lastModificationElement.textContent = document.lastModified;
         }
     }
     
-    // Initialize footer
     initFooter();
 });

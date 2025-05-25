@@ -1,16 +1,12 @@
-// Visit counter functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Track visits using localStorage
     function trackVisits() {
         const visitCounter = document.getElementById('visit-counter');
         if (!visitCounter) return;
         
-        // Get last visit date from localStorage
         const lastVisit = localStorage.getItem('lastVisit');
         const currentDate = new Date();
         
         if (!lastVisit) {
-            // First visit
             visitCounter.textContent = "Welcome! This is your first visit to our site.";
         } else {
             const previousVisit = new Date(lastVisit);
@@ -26,16 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Store current visit date
         localStorage.setItem('lastVisit', currentDate.toString());
     }
     
-    // Simulate weather data (in a real application, this would be fetched from an API)
     function displayWeather() {
         const weatherContent = document.querySelector('.weather-content');
         if (!weatherContent) return;
         
-        // Sample weather data - in a real app, this would come from an API
         const weatherData = {
             temperature: 22, // Celsius
             condition: 'Sunny',
@@ -45,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
             lowTemp: 14
         };
         
-        // Map condition to icon
         let weatherIcon = 'sunny';
         switch(weatherData.condition.toLowerCase()) {
             case 'cloudy':
@@ -67,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 weatherIcon = 'sunny';
         }
         
-        // Create weather display
         weatherContent.innerHTML = `
             <span class="material-symbols-outlined weather-icon">${weatherIcon}</span>
             <div class="current-temp">${weatherData.temperature}°C</div>
@@ -93,11 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
     
-    // Initialize page functions
     trackVisits();
     displayWeather();
     
-    // Lazy loading for images
     const images = document.querySelectorAll('.attraction-image img');
     
     if ('IntersectionObserver' in window) {
@@ -116,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
             imageObserver.observe(img);
         });
     } else {
-        // Fallback for browsers without IntersectionObserver support
         images.forEach(img => {
             img.src = img.dataset.src;
         });

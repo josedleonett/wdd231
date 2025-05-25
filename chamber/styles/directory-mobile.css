@@ -1,6 +1,3 @@
-/* Mobile-specific styles for directory page (max-width: 320px) */
-
-/* Adjust directory grid for very small screens */
 .directory-list {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);

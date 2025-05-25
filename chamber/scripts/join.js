@@ -1,16 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Function to generate membership cards dynamically from configuration
     function generateMembershipCards() {
         const membershipConfig = window.chamberConfig?.membership;
         const cardsContainer = document.querySelector('.membership-cards');
         
         if (!membershipConfig || !cardsContainer) return;
         
-        // Clear existing cards
         cardsContainer.innerHTML = '';
         
-        // Generate cards for each membership level
         membershipConfig.levels.forEach(level => {
             const card = document.createElement('div');
             card.className = 'membership-card';
@@ -29,11 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
             cardsContainer.appendChild(card);
         });
         
-        // Set up click handlers for the new buttons
         setupJoinButtonHandlers();
     }
     
-    // Function to set up join button handlers
     function setupJoinButtonHandlers() {
         const joinButtons = document.querySelectorAll('.join-button[data-level]');
         joinButtons.forEach(button => {
@@ -44,13 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (membershipConfig) {
                     const levelConfig = membershipConfig.getLevelByName(level);
                     if (levelConfig) {
-                        // Select the corresponding radio button
                         const radioButton = document.getElementById(`membership-${level}`);
                         if (radioButton) {
                             radioButton.checked = true;
                         }
                         
-                        // Scroll to form
                         const form = document.querySelector('.join-form-container');
                         if (form) {
                             form.scrollIntoView({ behavior: 'smooth' });
@@ -60,15 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-      // Initialize membership cards generation
     generateMembershipCards();
-      // Apply dynamic membership styles
     const membershipConfig = window.chamberConfig?.membership;
     if (membershipConfig && typeof membershipConfig.initializeDynamicStyles === 'function') {
         membershipConfig.initializeDynamicStyles();
     }
     
-    // Function to set timestamp when form is submitted
     function setTimestamp() {
         const timestampField = document.getElementById('timestamp');
         if (timestampField) {
@@ -76,18 +66,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Function to validate the form
     function validateForm(event) {
         event.preventDefault();
         
-        // Get form fields
         const businessName = document.getElementById('business-name');
         const contactName = document.getElementById('contact-name');
         const phone = document.getElementById('phone');
         const email = document.getElementById('email');
         const membershipLevel = document.querySelector('input[name="membership-level"]:checked');
         
-        // Reset validation
         const formControls = document.querySelectorAll('.form-control');
         formControls.forEach(control => {
             control.classList.remove('is-invalid');
@@ -97,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Validate required fields
         let isValid = true;
         
         if (!businessName.value.trim()) {
@@ -133,16 +119,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (isValid) {
-            // Set timestamp
             setTimestamp();
             
-            // Submit the form (in a real application, this would be an AJAX request)
             alert('Thank you for your application! We will contact you soon.');
             document.getElementById('join-form').reset();
         }
     }
     
-    // Helper function to show validation errors
     function showError(input, message) {
         input.classList.add('is-invalid');
         const errorDiv = document.createElement('div');
@@ -151,13 +134,11 @@ document.addEventListener('DOMContentLoaded', function() {
         input.parentNode.appendChild(errorDiv);
     }
     
-    // Helper function to validate email format
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
     
-    // Membership card selection
     function initMembershipSelection() {
         const membershipButtons = document.querySelectorAll('.membership-card .join-button');
         
@@ -166,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const level = this.getAttribute('data-level');
                 let radioId;
                 
-                // Map level to radio button
                 switch(level) {
                     case 'bronze':
                         radioId = 'membership-bronze';
@@ -182,7 +162,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         break;
                 }
                 
-                // Select the corresponding radio button
                 if (radioId) {
                     const radio = document.getElementById(radioId);
                     if (radio) {
@@ -190,7 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
                 
-                // Scroll to form
                 const form = document.getElementById('join-form');
                 if (form) {
                     form.scrollIntoView({ behavior: 'smooth' });
@@ -199,12 +177,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Initialize form validation
     const joinForm = document.getElementById('join-form');
     if (joinForm) {
         joinForm.addEventListener('submit', validateForm);
     }
     
-    // Initialize membership card selection
     initMembershipSelection();
 });
