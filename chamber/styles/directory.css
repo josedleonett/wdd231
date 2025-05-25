@@ -370,7 +370,6 @@ body.dark-mode .loading {
     color: var(--color-text-dark);
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -401,12 +400,14 @@ body.dark-mode .loading {
     .directory-list.list-view .card-title {
         font-size: 1.3rem;
         margin-bottom: var(--spacing-sm);
-    }
-      .directory-list.list-view .card-description p {
+    }    .directory-list.list-view .card-description p {
         font-size: 0.9rem;
         line-height: 1.5;
+        display: -webkit-box;
         -webkit-line-clamp: 3;
-        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     .directory-list.list-view .card-description a {
@@ -837,12 +838,13 @@ body.dark-mode .loading {
     .directory-list.list-view .card-title {
         font-size: 0.9rem;
         margin-bottom: 2px;
-    }
-    
-    .directory-list.list-view .card-description p {
+    }    .directory-list.list-view .card-description p {
         font-size: 0.75rem;
+        display: -webkit-box;
         -webkit-line-clamp: 1;
-        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
       .directory-list.list-view .card-description a {
         font-size: 0.7rem;
