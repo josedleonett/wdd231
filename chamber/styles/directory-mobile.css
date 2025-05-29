@@ -61,8 +61,9 @@
     padding: var(--spacing-xs);
 }
 
-.view-button .material-symbols-outlined {
-    font-size: 1rem;
+.view-button .icon {
+    width: 1rem;
+    height: 1rem;
 }
 
 /* Hero section adjustments for very small screens */

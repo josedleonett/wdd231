@@ -98,13 +98,14 @@ body.dark-mode .local-weather {
 }
 
 .weather-icon {
-    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
     margin-bottom: 1rem;
-    color: var(--color-primary);
+    filter: brightness(0) saturate(100%) invert(16%) sepia(89%) saturate(1658%) hue-rotate(208deg) brightness(95%) contrast(103%);
 }
 
 body.dark-mode .weather-icon {
-    color: var(--color-link-twitter);
+    filter: brightness(0) saturate(100%) invert(68%) sepia(21%) saturate(2240%) hue-rotate(173deg) brightness(101%) contrast(92%);
 }
 
 .current-temp {

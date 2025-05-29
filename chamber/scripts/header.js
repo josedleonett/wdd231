@@ -7,12 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const header = document.createElement('header');
         
         const headerContainer = document.createElement('div');
-        headerContainer.className = 'header-container';
-        
-        const logo = document.createElement('img');
+        headerContainer.className = 'header-container';        const logo = document.createElement('img');
         logo.src = config.logoSrc || 'images/logo.webp';
         logo.alt = config.logoAlt || 'Chamber of Commerce of Province of Cordoba logo';
         logo.className = 'logo';
+        logo.width = 80;
+        logo.height = 80;
+        logo.loading = 'eager';
+        logo.decoding = 'sync';
         
         const headerText = document.createElement('div');
         headerText.className = 'header-text';
@@ -46,12 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.appendChild(hamburgerIcon);
           const ul = document.createElement('ul');
         ul.className = 'nav-menu';
-        
+        const closeLi = document.createElement('li');
         const closeButton = document.createElement('button');
         closeButton.className = 'nav-close-btn';
         closeButton.setAttribute('aria-label', 'Close navigation menu');
-        closeButton.innerHTML = '<span class="material-symbols-outlined">close</span>';
-        ul.appendChild(closeButton);
+        closeButton.innerHTML = '<img src="images/icons/close.svg" alt="Close" class="icon" aria-label="Close">';
+        closeLi.appendChild(closeButton);
+        ul.appendChild(closeLi);
 
         const defaultNavItems = window.chamberConfig.defaultNavItems;
         const navItems = config.navItems || defaultNavItems;
@@ -71,16 +74,17 @@ document.addEventListener('DOMContentLoaded', function() {
             li.appendChild(a);
             ul.appendChild(li);
         });
-        
-        const li = document.createElement('li');
+          const li = document.createElement('li');
         const button = document.createElement('button');
         button.id = 'dark-mode-toggle';
         
-        const span = document.createElement('span');
-        span.className = 'material-symbols-outlined';
-        span.textContent = 'dark_mode';
+        const img = document.createElement('img');
+        img.src = 'images/icons/dark_mode.svg';
+        img.alt = 'Dark mode';
+        img.className = 'icon';
+        img.setAttribute('aria-label', 'Toggle dark mode');
         
-        button.appendChild(span);
+        button.appendChild(img);
         li.appendChild(button);
         ul.appendChild(li);
         nav.appendChild(hamburger);
@@ -107,16 +111,16 @@ document.addEventListener('DOMContentLoaded', function() {
         
         initHamburgerMenu();
     }
-    
-    function initDarkModeToggle() {
+      function initDarkModeToggle() {
         const darkModeToggle = document.getElementById('dark-mode-toggle');
         
         const darkModePref = localStorage.getItem('darkMode');
         if (darkModePref === 'enabled') {
             document.body.classList.add('dark-mode');
-            const icon = darkModeToggle.querySelector('.material-symbols-outlined');
+            const icon = darkModeToggle.querySelector('.icon');
             if (icon) {
-                icon.textContent = 'light_mode';
+                icon.src = 'images/icons/light_mode.svg';
+                icon.alt = 'Light mode';
             }
         }
         
@@ -124,13 +128,15 @@ document.addEventListener('DOMContentLoaded', function() {
             darkModeToggle.addEventListener('click', function() {
                 document.body.classList.toggle('dark-mode');
                 
-                const icon = this.querySelector('.material-symbols-outlined');
+                const icon = this.querySelector('.icon');
                 if (icon) {
                     if (document.body.classList.contains('dark-mode')) {
-                        icon.textContent = 'light_mode';
+                        icon.src = 'images/icons/light_mode.svg';
+                        icon.alt = 'Light mode';
                         localStorage.setItem('darkMode', 'enabled');
                     } else {
-                        icon.textContent = 'dark_mode';
+                        icon.src = 'images/icons/dark_mode.svg';
+                        icon.alt = 'Dark mode';
                         localStorage.setItem('darkMode', 'disabled');
                     }
                 }

@@ -48,18 +48,19 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
         
         const socialLinks = config.socialLinks || defaultSocialLinks;
-        
-        socialLinks.forEach(social => {
+          socialLinks.forEach(social => {
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = social.href;
             a.target = '_blank';
             a.setAttribute('aria-label', social.label);
             
-            const i = document.createElement('i');
-            i.className = `fab fa-${social.icon}`;
+            const img = document.createElement('img');
+            img.src = `images/icons/${social.icon}.svg`;
+            img.alt = social.label;
+            img.className = 'icon';
             
-            a.appendChild(i);
+            a.appendChild(img);
             li.appendChild(a);
             socialIcons.appendChild(li);
         });

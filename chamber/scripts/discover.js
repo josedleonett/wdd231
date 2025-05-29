@@ -58,9 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
             default:
                 weatherIcon = 'sunny';
         }
-        
-        weatherContent.innerHTML = `
-            <span class="material-symbols-outlined weather-icon">${weatherIcon}</span>
+          weatherContent.innerHTML = `
+            <img src="images/icons/${weatherIcon}.svg" alt="${weatherData.condition}" class="icon weather-icon">
             <div class="current-temp">${weatherData.temperature}°C</div>
             <p>${weatherData.condition}</p>
             <div class="weather-details">

@@ -1,0 +1,126 @@
+/* SVG Icons - Optimized replacement for Material Symbols Outlined */
+/* Lightweight SVG icons to reduce page weight */
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+/* For IMG-based SVG icons */
+.icon[src$=".svg"] {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-grid-view {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 3h8v8H3zm10 0h8v8h-8zm-10 10h8v8H3zm10 0h8v8h-8z'/%3E%3C/svg%3E");
+}
+
+.icon-view-list {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 6h2v2H4zm4 0h12v2H8zm-4 5h2v2H4zm4 0h12v2H8zm-4 5h2v2H4zm4 0h12v2H8z'/%3E%3C/svg%3E");
+}
+
+.icon-business {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 7V3H2v18h20V7zm-2 8h-2v2h2zm0-4h-2v2h2zm0-4h-2v2h2zm6 8h-2v-2h2v-2h-2v-2h2v-2h-2V9h2z'/%3E%3C/svg%3E");
+}
+
+.icon-handshake {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/%3E%3C/svg%3E");
+}
+
+.icon-campaign {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18 11v2h4v-2zm-2 6.61c.96.71 2.21 1.65 3.2 2.39l1.2-1.61c-.99-.74-2.24-1.68-3.2-2.39zm3.2-10c-.99.74-2.24 1.68-3.2 2.4l1.2 1.6c.96-.71 2.21-1.65 3.2-2.39zM4 9c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1v4h2v-4h1l5 3V6L8 9zm11.5 3c0-1.33-.58-2.53-1.5-3.35v6.69c.92-.81 1.5-2.01 1.5-3.34z'/%3E%3C/svg%3E");
+}
+
+.icon-event {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z'/%3E%3C/svg%3E");
+}
+
+.icon-close {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E");
+}
+
+.icon-dark-mode {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z'/%3E%3C/svg%3E");
+}
+
+.icon-light-mode {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3m0-2c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z'/%3E%3C/svg%3E");
+}
+
+/* Weather icons */
+.icon-sunny {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3m0-2c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z'/%3E%3C/svg%3E");
+}
+
+.icon-cloudy {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19.36 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96z'/%3E%3C/svg%3E");
+}
+
+.icon-rainy {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12.5 2C9.85 2 7.45 3 5.6 4.6c-.38.32-.5.81-.3 1.23.19.42.61.7 1.1.7.22 0 .42-.07.59-.17C8.93 5.02 10.65 4.5 12.5 4.5c3.31 0 6.07 2.32 6.71 5.51 2.04.18 3.79 1.93 3.79 4.49 0 2.48-2.02 4.5-4.5 4.5h-11C4.02 18.5 2 16.48 2 14c0-2.18 1.79-3.95 4-4z'/%3E%3C/svg%3E");
+}
+
+.icon-snowy {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M22 11h-4.17l3.24-3.24-1.41-1.42L15.83 10H12v-3.83l3.83-3.83-1.42-1.41L11 4.17V0H9v4.17L5.76.93 4.34 2.34 8.17 6.17V10H4.34L.93 5.76 2.34 4.34 6.17 8.17H2v2h4.17L2.93 13.41l1.41 1.42L8.17 11H12v3.83l-3.83 3.83 1.42 1.41L13 16.83V21h2v-4.17l3.24 3.24 1.42-1.41L15.83 14.83V11H22z'/%3E%3C/svg%3E");
+}
+
+/* Size variants */
+.feature-icon {
+    width: 48px !important;
+    height: 48px !important;
+    margin-bottom: 1rem;
+}
+
+.weather-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.icon-lg {
+    width: 32px;
+    height: 32px;
+}
+
+.icon-xl {
+    width: 48px;
+    height: 48px;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .icon-grid-view,
+body.dark-mode .icon-view-list,
+body.dark-mode .icon-business,
+body.dark-mode .icon-handshake,
+body.dark-mode .icon-campaign,
+body.dark-mode .icon-event,
+body.dark-mode .icon-close {
+    filter: brightness(0) invert(0.9);
+}
+
+/* Dark mode icon adjustments */
+body.dark-mode .icon[src$=".svg"] {
+    filter: brightness(0.9);
+}
+
+/* Hover effects for interactive icons */
+button:hover .icon,
+a:hover .icon {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* Focus effects for accessibility */
+button:focus .icon,
+a:focus .icon {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}

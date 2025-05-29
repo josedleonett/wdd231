@@ -210,7 +210,9 @@ header {
 
 .logo {
     width: 80px;
-    height: auto;
+    height: 80px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: var(--border-radius-circle);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: transform var(--transition-normal);
@@ -410,7 +412,13 @@ body.dark-mode .hamburger-menu:hover {
       .nav-menu.active {
         left: 0;
     }
-      .nav-close-btn {
+    
+    .nav-menu li:first-child {
+        margin: 0;
+        position: relative;
+    }
+      
+    .nav-close-btn {
         position: absolute;
         top: var(--spacing-md);
         right: var(--spacing-md);
@@ -656,9 +664,9 @@ body.dark-mode .hero h1 {
     .header-text .highlight {
         font-size: 1.6rem;
     }
-    
-    .logo {
+      .logo {
         width: 100px;
+        height: 100px;
     }
 }
 
@@ -675,9 +683,9 @@ body.dark-mode .hero h1 {
     .header-text .highlight {
         font-size: 1.8rem;
     }
-    
-    .logo {
+      .logo {
         width: 120px;
+        height: 120px;
     }
     
     nav ul {
@@ -716,8 +724,9 @@ body.dark-mode #dark-mode-toggle {
     background-color: rgba(100, 181, 246, 0.1);
 }
 
-#dark-mode-toggle .material-symbols-outlined {
-    font-size: 1.5rem;
+#dark-mode-toggle .icon {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 
