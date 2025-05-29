@@ -58,7 +58,7 @@ main {
 }
 
 .hero h1 {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -98,10 +98,6 @@ main {
 
 .hero {
     padding: 1.5rem 1rem;
-}
-
-.hero h1 {
-    font-size: 2rem;
 }
 
 .hero p {
