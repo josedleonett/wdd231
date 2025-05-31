@@ -67,14 +67,170 @@ window.chamberConfig = {
     authorName: "Jose D. Leonett",
     authorWebsite: "https://josedleonett.github.io",
     authorWebsiteText: "josedleonett.github.io",
-  },
-  /**
+  },  /**
+   * Weather API configuration
+   */
+  weather: {
+    // OpenWeatherMap API configuration
+    apiKey: "43246885e9f9e41c91cb71c7bae8f96f", // Replace with actual API key
+    cityName: "Cordoba,AR", // City name and country code
+    displayCityName: "Córdoba, Argentina", // Friendly city name for display
+    units: "metric", // Use metric units (Celsius) - can be "metric" or "imperial"
+    apiUrl: "https://api.openweathermap.org/data/2.5",
+    
+    // API configuration and error handling
+    apiConfig: {
+      timeout: 10000, // 10 seconds timeout
+      retryAttempts: 2,
+      fallbackToStatic: true
+    },
+    
+    // Unit display configuration
+    unitConfig: {
+      metric: {
+        temperature: "°C",
+        windSpeed: "km/h",
+        windSpeedConversion: 3.6, // Convert m/s to km/h
+        speedLabel: "km/h"
+      },
+      imperial: {
+        temperature: "°F", 
+        windSpeed: "mph",
+        windSpeedConversion: 2.237, // Convert m/s to mph
+        speedLabel: "mph"
+      }
+    },
+    
+    // Weather condition to emoji mapping
+    emojiMap: {
+      'Clear': '☀️',
+      'Clouds': '☁️',
+      'Rain': '🌧️',
+      'Drizzle': '🌦️',
+      'Thunderstorm': '⛈️',
+      'Snow': '❄️',
+      'Mist': '🌫️',
+      'Fog': '🌫️',
+      'Haze': '🌫️',
+      'Dust': '🌪️',
+      'Sand': '🌪️',
+      'Ash': '🌋',
+      'Squall': '💨',
+      'Tornado': '🌪️',
+      'sunny': '☀️',
+      'cloudy': '☁️',
+      'partly cloudy': '⛅',
+      'rainy': '🌧️',
+      'stormy': '⛈️',
+      'snowy': '❄️'
+    },
+    
+    // Night time emoji overrides
+    nightEmojis: {
+      'Clear': '🌙',
+      'Clouds': '☁️'
+    },
+    
+    // Default emoji when no condition matches
+    defaultEmoji: '🌤️', // Sun behind clouds
+    
+    // Partly cloudy icon codes (OpenWeatherMap icon codes)
+    partlyCloudyIconCodes: ['02', '03'],
+    
+    // Static weather data for fallback (when API is unavailable)
+    staticWeatherData: {
+      metric: {
+        temperature: 22,   // Celsius
+        condition: 'Clear',
+        description: 'sunny',
+        humidity: 45,
+        windSpeed: 8,      // km/h
+        highTemp: 26,      // Celsius
+        lowTemp: 14        // Celsius
+      },
+      imperial: {
+        temperature: 72,   // Fahrenheit
+        condition: 'Clear',
+        description: 'sunny',
+        humidity: 45,
+        windSpeed: 5,      // mph
+        highTemp: 79,      // Fahrenheit
+        lowTemp: 57        // Fahrenheit
+      }
+    },
+    
+    // Forecast configuration
+    forecastConfig: {
+      daysToShow: 3,                    // Number of forecast days to display
+      hoursInterval: 8,                 // Hours between forecast items (24h / 8 = 3 times per day)
+      title: "3-Day Forecast",          // Forecast section title
+      showDescriptions: true,           // Show weather descriptions in forecast
+      showEmojis: true                  // Show weather emojis in forecast
+    }
+  },/**
    * Directory page configuration
    */
   directory: {
     defaultSortBy: "name",
     defaultView: "grid",
     itemsPerPage: 12,
+  },
+  /**
+   * Member Spotlight configuration
+   */
+  memberSpotlight: {
+    // Number of members to display in spotlight
+    numberOfMembers: 2,
+    
+    // Qualifying membership levels for spotlight (Gold=3, Silver=2)
+    qualifyingLevels: [2, 3],
+    
+    // Static fallback member data when members.json is unavailable
+    staticFallback: {
+      name: "TechNova Solutions",
+      image: "images/placeholder.svg",
+      description: "Joining the Chamber has connected us with valuable partners and clients. Our business has grown 30% since becoming a member.",
+      attribution: "- John Smith, CEO"
+    },
+    
+    // Loading message while fetching member data
+    loadingMessage: {
+      title: "Loading Member Spotlight...",
+      description: "Discovering our featured members..."
+    },
+    
+    // Error handling configuration
+    errorHandling: {
+      showErrorMessage: false,
+      fallbackToStatic: true,
+      retryAttempts: 1
+    }
+  },
+
+  /**
+   * Homepage sections configuration
+   */
+  homepage: {
+    // Weather widget configuration
+    weatherWidget: {
+      enabled: true,
+      showForecast: true,
+      showCityName: true
+    },
+    
+    // Member spotlight configuration  
+    memberSpotlight: {
+      enabled: true,
+      title: "Member Spotlight",
+      showMembershipLevel: true
+    },
+    
+    // Events section configuration
+    events: {
+      enabled: true,
+      title: "Upcoming Events",
+      maxEventsToShow: 3
+    }
   },
   /**
    * Membership configuration

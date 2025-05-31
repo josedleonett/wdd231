@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error fetching members data:", error);
       return [];
     }
-  }  function createMemberCard(member) {
+  }
+  function createMemberCard(member) {
     const membershipConfig = window.chamberConfig?.membership;
     const levelConfig = membershipConfig?.getLevelById?.(member.membershipLevel);
       return `
@@ -44,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
       'membership': (a, b) => (b.membershipLevel || 0) - (a.membershipLevel || 0),
       'membership-desc': (a, b) => (a.membershipLevel || 0) - (b.membershipLevel || 0)
     };
-
     return sortingStrategies[sortBy] ? 
       [...members].sort(sortingStrategies[sortBy]) : 
       [...members];
@@ -52,10 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
   async function displayMembers(sortBy = "name") {
     const directoryList = document.querySelector(".directory-list");
     if (!directoryList) return;
-
     const members = await fetchMembersData();
     const sortedMembers = sortMembers(members, sortBy);
-    
     directoryList.innerHTML = sortedMembers
       .map(member => createMemberCard(member))
       .join('');
@@ -63,16 +61,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function initDirectory() {
     const membershipConfig = window.chamberConfig?.membership;
     membershipConfig?.initializeDynamicStyles?.();
-
     displayMembers();
-
     const sortSelect = document.getElementById("sort-select");
     sortSelect?.addEventListener("change", (e) => displayMembers(e.target.value));
-
     const gridViewBtn = document.getElementById("grid-view");
     const listViewBtn = document.getElementById("list-view");
     const directoryList = document.querySelector(".directory-list");
-
     if (gridViewBtn && listViewBtn && directoryList) {
       const toggleView = (viewType, activeBtn, inactiveBtn) => {
         directoryList.classList.remove(viewType === 'grid' ? 'list-view' : 'grid-view');
@@ -81,17 +75,13 @@ document.addEventListener("DOMContentLoaded", function () {
         inactiveBtn.classList.remove('active');
         localStorage.setItem("directoryView", viewType);
       };
-
       gridViewBtn.addEventListener("click", () => 
         toggleView('grid', gridViewBtn, listViewBtn));
-      
       listViewBtn.addEventListener("click", () => 
         toggleView('list', listViewBtn, gridViewBtn));
-
       const savedView = localStorage.getItem("directoryView");
       (savedView === "list" ? listViewBtn : gridViewBtn).click();
     }
   }
-
   initDirectory();
 });

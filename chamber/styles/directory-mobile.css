@@ -4,7 +4,6 @@
     padding: 0 var(--spacing-xs);
 }
 
-/* Make cards more compact on very small screens */
 .directory-item {
     max-width: 100%;
     margin-bottom: var(--spacing-sm);
@@ -35,7 +34,6 @@
     padding: var(--spacing-xs);
 }
 
-/* Very compact directory controls for extra small screens */
 .directory-controls {
     margin: var(--spacing-xs);
     padding: var(--spacing-xs);
@@ -66,7 +64,6 @@
     height: 1rem;
 }
 
-/* Hero section adjustments for very small screens */
 .hero {
     padding: var(--spacing-md) var(--spacing-sm);
 }

@@ -611,8 +611,6 @@ body.dark-mode .loading {
     color: var(--color-dark-text-secondary);
 }
 
-/* ===== RESPONSIVE DESIGN FOR MOBILE ===== */
-
 @media screen and (max-width: 768px) {
     .directory-controls {
         flex-direction: column;
@@ -789,8 +787,6 @@ body.dark-mode .loading {
         min-height: 44px;
     }
 }
-
-/* ===== ENHANCED MOBILE LIST VIEW STYLES ===== */
 
 @media screen and (max-width: 480px) {
     .directory-list.list-view .directory-item {

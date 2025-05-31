@@ -25,66 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('lastVisit', currentDate.toString());
     }
     
-    function displayWeather() {
-        const weatherContent = document.querySelector('.weather-content');
-        if (!weatherContent) return;
-        
-        const weatherData = {
-            temperature: 22, // Celsius
-            condition: 'Sunny',
-            humidity: 45, // Percentage
-            windSpeed: 8, // km/h
-            highTemp: 26,
-            lowTemp: 14
-        };
-        
-        let weatherIcon = 'sunny';
-        switch(weatherData.condition.toLowerCase()) {
-            case 'cloudy':
-                weatherIcon = 'cloud';
-                break;
-            case 'rainy':
-                weatherIcon = 'rainy';
-                break;
-            case 'partly cloudy':
-                weatherIcon = 'partly_cloudy_day';
-                break;
-            case 'stormy':
-                weatherIcon = 'thunderstorm';
-                break;
-            case 'snowy':
-                weatherIcon = 'weather_snowy';
-                break;
-            default:
-                weatherIcon = 'sunny';
-        }
-          weatherContent.innerHTML = `
-            <img src="images/icons/${weatherIcon}.svg" alt="${weatherData.condition}" class="icon weather-icon">
-            <div class="current-temp">${weatherData.temperature}°C</div>
-            <p>${weatherData.condition}</p>
-            <div class="weather-details">
-                <div class="weather-detail-item">
-                    <div class="detail-value">${weatherData.highTemp}°C</div>
-                    <div class="detail-label">High</div>
-                </div>
-                <div class="weather-detail-item">
-                    <div class="detail-value">${weatherData.lowTemp}°C</div>
-                    <div class="detail-label">Low</div>
-                </div>
-                <div class="weather-detail-item">
-                    <div class="detail-value">${weatherData.humidity}%</div>
-                    <div class="detail-label">Humidity</div>
-                </div>
-                <div class="weather-detail-item">
-                    <div class="detail-value">${weatherData.windSpeed} km/h</div>
-                    <div class="detail-label">Wind</div>
-                </div>
-            </div>
-        `;
-    }
-    
     trackVisits();
-    displayWeather();
     
     const images = document.querySelectorAll('.attraction-image img');
     

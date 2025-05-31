@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
         
         const socialLinks = config.socialLinks || defaultSocialLinks;
-          socialLinks.forEach(social => {
+        socialLinks.forEach(social => {
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = social.href;
@@ -106,26 +106,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const existingFooter = document.querySelector('footer');
         
         if (existingFooter) {
-            const newFooter = createFooter();
-            body.replaceChild(newFooter, existingFooter);
-        } else {
-            const newFooter = createFooter();
-            body.appendChild(newFooter);
+            existingFooter.remove();
         }
+        const footer = createFooter();
+        body.appendChild(footer);
         
-        updateFooterInfo();
-    }
-    
-    function updateFooterInfo() {
-        const currentYearElement = document.getElementById('current-year');
-        if (currentYearElement) {
-            const year = new Date().getFullYear();
-            currentYearElement.textContent = year + ' ' + (config.companyName || 'Chamber of Commerce of Province of Cordoba');
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
         }
-
-        const lastModificationElement = document.getElementById('last-modification-date');
-        if (lastModificationElement) {
-            lastModificationElement.textContent = document.lastModified;
+        const lastModSpan = document.getElementById('last-modification-date');
+        if (lastModSpan) {
+            lastModSpan.textContent = document.lastModified;
         }
     }
     
