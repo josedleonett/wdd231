@@ -869,3 +869,29 @@ body.dark-mode .directory-list.list-view .directory-item {
 body.dark-mode .directory-list.list-view .card-content::before {
     background: linear-gradient(to bottom, var(--color-dark-accent), var(--color-dark-link));
 }
+
+/* Encabezados proporcionales y accesibles (escala estándar) */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.17rem;
+  font-weight: 500;
+}
+h5 {
+  font-size: 0.83rem;
+  font-weight: 500;
+}
+h6 {
+  font-size: 0.67rem;
+  font-weight: 500;
+}

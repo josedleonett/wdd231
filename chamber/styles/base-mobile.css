@@ -56,12 +56,12 @@ main {
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: var(--spacing-sm);
 }
 
 .hero p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -124,4 +124,29 @@ footer h2 {
 
 #dark-mode-toggle {
     margin-top: 0.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+h3 {
+  font-size: 1.17rem;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+h5 {
+  font-size: 0.83rem;
+  font-weight: 500;
+}
+h6 {
+  font-size: 0.67rem;
+  font-weight: 500;
 }

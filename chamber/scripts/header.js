@@ -44,10 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
         closeButton.className = 'nav-close-btn';
         closeButton.setAttribute('aria-label', 'Close navigation menu');
         closeButton.innerHTML = '<img src="images/icons/close.svg" alt="Close" class="icon" aria-label="Close">';
-        closeLi.appendChild(closeButton);
-        ul.appendChild(closeLi);
-        const defaultNavItems = window.chamberConfig.defaultNavItems;
-        const navItems = config.navItems || defaultNavItems;
+        closeLi.appendChild(closeButton);        ul.appendChild(closeLi);
+        const navItems = config.navItems || [];
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         navItems.forEach(item => {
             const li = document.createElement('li');
@@ -76,8 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         header.appendChild(headerContainer);
         header.appendChild(nav);
         return header;
-    }
-    function initHeader() {
+    }    function initHeader() {
         const body = document.body;
         const existingHeader = document.querySelector('header');
         if (existingHeader) {
@@ -85,28 +82,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const header = createHeader();
         body.insertBefore(header, body.firstChild);
-        const hamburger = document.querySelector('.hamburger-menu');
+          const hamburger = document.querySelector('.hamburger-menu');
         const navMenu = document.querySelector('.nav-menu');
         const closeBtn = document.querySelector('.nav-close-btn');
+        
         hamburger?.addEventListener('click', function() {
-            navMenu.classList.toggle('open');
-            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
         });
+        
         closeBtn?.addEventListener('click', function() {
-            navMenu.classList.remove('open');
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
         });
+        
         document.addEventListener('click', function(e) {
-            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                navMenu.classList.remove('open');
+            if (navMenu && hamburger && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
             }
         });
+        
         const darkModeToggle = document.getElementById('dark-mode-toggle');
         darkModeToggle?.addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
             localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
         });
+        
         if (localStorage.getItem('darkMode') === 'true') {
             document.body.classList.add('dark-mode');
         }

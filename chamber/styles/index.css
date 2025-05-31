@@ -12,8 +12,13 @@
     transition: background-color var(--transition-normal);
 }
     
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
 .hero h1 {
-    color: var(--color-primary);
+  font-size: 2.5rem;
 }
 
 .hero p {
@@ -720,3 +725,5 @@ body.dark-mode .forecast-description {
 .forecast-icon {
     display: none;
 }
+
+/* Mantener jerarquía de encabezados, sin sobrescribir la escala base */
