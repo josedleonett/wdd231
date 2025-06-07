@@ -6,8 +6,10 @@
     <title>Join | Chamber of Commerce Project</title>
     <meta name="description" content="Join the Chamber of Commerce of Province of Cordoba. Become a member and access exclusive benefits for your business.">
     <meta name="author" content="Jose D. Leonett">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/base-mobile.css" media="(max-width: 320px)">
     <link rel="stylesheet" href="styles/join.css">
@@ -215,13 +217,9 @@
                                required title="Please enter your business or organization name" 
                                autocomplete="organization">
                     </label>
-                </div>
-                  <div class="form-group">
-                    <label for="membership-level" class="required-field">
-                        Membership Level *
-                    </label>
-                    <fieldset class="radio-group" role="radiogroup" aria-labelledby="membership-level">
-                        <legend class="visually-hidden">Choose your membership level</legend>
+                </div>                  <div class="form-group">
+                    <fieldset class="radio-group" role="radiogroup">
+                        <legend class="required-field">Membership Level *</legend>
                         <div class="radio-option">
                             <input type="radio" id="membership-np" name="membership-level" value="NP" required aria-describedby="membership-help">
                             <label for="membership-np">NP Membership (Non-profit - Free)</label>
