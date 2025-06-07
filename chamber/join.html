@@ -32,10 +32,20 @@
             <h1>Join Our Chamber</h1>
             <p>Become a member of the Chamber of Commerce of Province of Cordoba and access exclusive benefits for your business.</p>
         </section>
-        
-        <section class="membership-section">
+          <section class="membership-section">
             <h2>Membership Levels</h2>
             <div class="membership-cards">
+                <div class="membership-card">
+                    <div class="membership-badge membership-level-np">NP</div>
+                    <h3>Non-Profit</h3>
+                    <div class="membership-price">Free</div>
+                    <ul class="membership-features">
+                        <li>Basic directory listing</li>
+                        <li>Chamber newsletter</li>
+                    </ul>
+                    <button class="info-button" data-modal="np-modal">Learn More</button>
+                </div>
+                
                 <div class="membership-card">
                     <div class="membership-badge membership-level-1">Bronze</div>
                     <h3>Bronze</h3>
@@ -45,7 +55,7 @@
                         <li>Chamber newsletter</li>
                         <li>Networking events access</li>
                     </ul>
-                    <button class="join-button" data-level="bronze">Select</button>
+                    <button class="info-button" data-modal="bronze-modal">Learn More</button>
                 </div>
                 
                 <div class="membership-card">
@@ -58,7 +68,7 @@
                         <li>Networking events access</li>
                         <li>Social media spotlight</li>
                     </ul>
-                    <button class="join-button" data-level="silver">Select</button>
+                    <button class="info-button" data-modal="silver-modal">Learn More</button>
                 </div>
                 
                 <div class="membership-card">
@@ -73,80 +83,172 @@
                         <li>Business trainings</li>
                         <li>Event sponsorship opportunities</li>
                     </ul>
-                    <button class="join-button" data-level="gold">Select</button>
-                </div>
-                
-                <div class="membership-card">
-                    <div class="membership-badge membership-level-4">Platinum</div>
-                    <h3>Platinum</h3>
-                    <div class="membership-price">$500/yr</div>
-                    <ul class="membership-features">
-                        <li>Featured directory listing</li>
-                        <li>Chamber newsletter</li>
-                        <li>Networking events access</li>
-                        <li>Social media spotlight</li>
-                        <li>Business trainings</li>
-                        <li>Event sponsorship opportunities</li>
-                        <li>Exclusive executive events</li>
-                        <li>Annual banner ad on chamber website</li>
-                    </ul>
-                    <button class="join-button" data-level="platinum">Select</button>
+                    <button class="info-button" data-modal="gold-modal">Learn More</button>
                 </div>
             </div>
-        </section>
-        
-        <section class="join-form-container">
+        </section>        <!-- Modals for membership levels using HTML5 dialog -->
+        <dialog id="np-modal" class="modal">
+            <div class="modal-content">
+                <button class="close-button" data-modal="np-modal" aria-label="Close modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3>Non-Profit Membership Benefits</h3>
+                <ul>
+                    <li>Basic directory listing with contact information</li>
+                    <li>Monthly chamber newsletter with local business news</li>
+                    <li>Access to member resources and tools</li>
+                    <li>Opportunity to participate in community events</li>
+                    <li>Non-profit organization support and networking</li>
+                </ul>
+                <p><strong>Cost:</strong> Free for qualified non-profit organizations</p>
+            </div>
+        </dialog>
+
+        <dialog id="bronze-modal" class="modal">
+            <div class="modal-content">
+                <button class="close-button" data-modal="bronze-modal" aria-label="Close modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3>Bronze Membership Benefits</h3>
+                <ul>
+                    <li>Basic directory listing with business description</li>
+                    <li>Monthly chamber newsletter</li>
+                    <li>Access to all networking events</li>
+                    <li>Member discounts on chamber events</li>
+                    <li>Business advocacy and support</li>
+                    <li>Access to member-only resources</li>
+                </ul>
+                <p><strong>Cost:</strong> $50 per year</p>
+            </div>
+        </dialog>
+
+        <dialog id="silver-modal" class="modal">
+            <div class="modal-content">
+                <button class="close-button" data-modal="silver-modal" aria-label="Close modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3>Silver Membership Benefits</h3>
+                <ul>
+                    <li>Enhanced directory listing with logo and photos</li>
+                    <li>Monthly chamber newsletter</li>
+                    <li>Priority access to networking events</li>
+                    <li>Monthly social media spotlight feature</li>
+                    <li>Business training workshops</li>
+                    <li>Member-to-member referral program</li>
+                    <li>Ribbon cutting ceremony for grand openings</li>
+                </ul>
+                <p><strong>Cost:</strong> $100 per year</p>
+            </div>
+        </dialog>
+
+        <dialog id="gold-modal" class="modal">
+            <div class="modal-content">
+                <button class="close-button" data-modal="gold-modal" aria-label="Close modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3>Gold Membership Benefits</h3>
+                <ul>
+                    <li>Premium directory listing with featured placement</li>
+                    <li>Monthly chamber newsletter</li>
+                    <li>VIP access to all networking events</li>
+                    <li>Weekly social media spotlight features</li>
+                    <li>Complimentary business training workshops</li>
+                    <li>Event sponsorship opportunities</li>
+                    <li>Quarterly spotlight in newsletter</li>
+                    <li>Priority placement in chamber communications</li>
+                    <li>Exclusive gold member networking events</li>
+                </ul>
+                <p><strong>Cost:</strong> $250 per year</p>
+            </div>
+        </dialog>
+          <section class="join-form-container">
             <h2>Membership Application</h2>
-            <form id="join-form">
+            <form id="join-form" method="get" action="thankyou.html">
                 <div class="form-group">
-                    <label for="business-name" class="required-field">Business Name</label>
-                    <input type="text" id="business-name" class="form-control" required>
+                    <label for="first-name" class="required-field">
+                        First Name *
+                        <input type="text" id="first-name" name="first-name" class="form-control" 
+                               required title="Please enter your first name" autocomplete="given-name">
+                    </label>
                 </div>
                 
                 <div class="form-group">
-                    <label for="business-address">Business Address</label>
-                    <input type="text" id="business-address" class="form-control">
+                    <label for="last-name" class="required-field">
+                        Last Name *
+                        <input type="text" id="last-name" name="last-name" class="form-control" 
+                               required title="Please enter your last name" autocomplete="family-name">
+                    </label>
                 </div>
                 
                 <div class="form-group">
-                    <label for="business-description">Business Description</label>
-                    <textarea id="business-description" class="form-control" rows="4"></textarea>
+                    <label for="org-title">
+                        Organizational Title
+                        <input type="text" id="org-title" name="org-title" class="form-control"
+                               title="Enter your title within the organization (minimum 7 characters)"
+                               autocomplete="organization-title"
+                               pattern="^[a-zA-Z\s\-]{7,}$">
+                    </label>
                 </div>
                 
                 <div class="form-group">
-                    <label for="contact-name" class="required-field">Contact Name</label>
-                    <input type="text" id="contact-name" class="form-control" required>
+                    <label for="email" class="required-field">
+                        Email Address *
+                        <input type="email" id="email" name="email" class="form-control" 
+                               required title="Please enter a valid email address" 
+                               autocomplete="email" placeholder="example@company.com">
+                    </label>
                 </div>
                 
                 <div class="form-group">
-                    <label for="phone" class="required-field">Phone Number</label>
-                    <input type="tel" id="phone" class="form-control" required>
+                    <label for="mobile" class="required-field">
+                        Mobile Phone Number *
+                        <input type="tel" id="mobile" name="mobile" class="form-control" 
+                               required title="Please enter your mobile phone number" 
+                               autocomplete="tel">
+                    </label>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email" class="required-field">Email Address</label>
-                    <input type="email" id="email" class="form-control" required>
+                    <label for="business-name" class="required-field">
+                        Business/Organization Name *
+                        <input type="text" id="business-name" name="business-name" class="form-control" 
+                               required title="Please enter your business or organization name" 
+                               autocomplete="organization">
+                    </label>
                 </div>
-                
-                <div class="form-group">
-                    <label for="website">Website URL</label>
-                    <input type="url" id="website" class="form-control" placeholder="https://example.com">
-                </div>
-                
-                <div class="form-group">
-                    <label class="required-field">Membership Level</label>                    <div class="radio-group">                        <div class="radio-option">
-                            <input type="radio" id="membership-non-profit" name="membership-level" value="1" required>
-                            <label for="membership-non-profit">Non-profit (Free)</label>
+                  <div class="form-group">
+                    <label for="membership-level" class="required-field">
+                        Membership Level *
+                    </label>
+                    <fieldset class="radio-group" role="radiogroup" aria-labelledby="membership-level">
+                        <legend class="visually-hidden">Choose your membership level</legend>
+                        <div class="radio-option">
+                            <input type="radio" id="membership-np" name="membership-level" value="NP" required aria-describedby="membership-help">
+                            <label for="membership-np">NP Membership (Non-profit - Free)</label>
                         </div>
                         <div class="radio-option">
-                            <input type="radio" id="membership-silver" name="membership-level" value="2">
-                            <label for="membership-silver">Silver ($150/year)</label>
+                            <input type="radio" id="membership-bronze" name="membership-level" value="Bronze">
+                            <label for="membership-bronze">Bronze Membership</label>
                         </div>
                         <div class="radio-option">
-                            <input type="radio" id="membership-gold" name="membership-level" value="3">
-                            <label for="membership-gold">Gold ($300/year)</label>
+                            <input type="radio" id="membership-silver" name="membership-level" value="Silver">
+                            <label for="membership-silver">Silver Membership</label>
                         </div>
-                    </div>
+                        <div class="radio-option">
+                            <input type="radio" id="membership-gold" name="membership-level" value="Gold">
+                            <label for="membership-gold">Gold Membership</label>
+                        </div>
+                    </fieldset>
+                    <div id="membership-help" class="form-help">Select the membership level that best fits your organization</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="business-description">
+                        Business/Organization Description
+                        <textarea id="business-description" name="business-description" 
+                                  class="form-control" rows="4" 
+                                  title="Describe your business or organization"></textarea>
+                    </label>
                 </div>
                 
                 <input type="hidden" id="timestamp" name="timestamp">

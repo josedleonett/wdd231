@@ -1,112 +1,140 @@
 document.addEventListener('DOMContentLoaded', function() {
-    function generateMembershipCards() {
-        const membershipConfig = window.chamberConfig?.membership;
-        const cardsContainer = document.querySelector('.membership-cards');
-        if (!membershipConfig || !cardsContainer) return;
-        cardsContainer.innerHTML = '';
-        membershipConfig.levels.forEach(level => {
-            const card = document.createElement('div');
-            card.className = 'membership-card';
-            const priceDisplay = level.price === 0 ? 'Free' : `${level.currency}${level.price}/${level.period}`;
-            card.innerHTML = `
-                <div class="membership-badge membership-level-${level.id}">${level.name}</div>
-                <h3>${level.name}</h3>
-                <div class="membership-price">${priceDisplay}</div>
-                <ul class="membership-features">
-                    ${level.features.map(feature => `<li>${feature}</li>`).join('')}
-                </ul>
-                <button class="join-button" data-level="${level.name.toLowerCase()}">Select</button>
-            `;
-            cardsContainer.appendChild(card);
-        });
-        setupJoinButtonHandlers();
+    setTimestamp();
+    initializeModals();
+    initializeFormValidation();
+    
+    animateMembershipCards();
+    
+    function setTimestamp() {
+        const timestampField = document.getElementById('timestamp');
+        if (timestampField) {
+            const now = new Date();
+            timestampField.value = now.toISOString();
+        }
     }
-    function setupJoinButtonHandlers() {
-        const joinButtons = document.querySelectorAll('.join-button[data-level]');
-        joinButtons.forEach(button => {
+      function initializeModals() {
+        const modalButtons = document.querySelectorAll('[data-modal]');
+        const modals = document.querySelectorAll('dialog.modal');
+        const closeButtons = document.querySelectorAll('.close-button');
+        
+        modalButtons.forEach(button => {
             button.addEventListener('click', function() {
-                const level = this.getAttribute('data-level');
-                const membershipConfig = window.chamberConfig?.membership;
-                if (membershipConfig) {
-                    const levelConfig = membershipConfig.getLevelByName(level);
-                    if (levelConfig) {
-                        const radioButton = document.getElementById(`membership-${level}`);
-                        if (radioButton) {
-                            radioButton.checked = true;
-                        }
-                        const form = document.querySelector('.join-form-container');
-                        if (form) {
-                            form.scrollIntoView({ behavior: 'smooth' });
-                        }
+                const modalId = this.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal && modal.tagName.toLowerCase() === 'dialog') {
+                    modal.showModal();
+                    const closeButton = modal.querySelector('.close-button');
+                    if (closeButton) {
+                        closeButton.focus();
                     }
                 }
             });
         });
-    }
-    generateMembershipCards();
-    const membershipConfig = window.chamberConfig?.membership;
-    if (membershipConfig && typeof membershipConfig.initializeDynamicStyles === 'function') {
-        membershipConfig.initializeDynamicStyles();
-    }
-    function setTimestamp() {
-        const timestampField = document.getElementById('timestamp');
-        if (timestampField) {
-            timestampField.value = new Date().toISOString();
-        }
-    }
-    function validateForm(event) {
-        event.preventDefault();
-        const businessName = document.getElementById('business-name');
-        const contactName = document.getElementById('contact-name');
-        const phone = document.getElementById('phone');
-        const email = document.getElementById('email');
-        const membershipLevel = document.querySelector('input[name="membership-level"]:checked');
-        const formControls = document.querySelectorAll('.form-control');
-        formControls.forEach(control => {
-            control.classList.remove('is-invalid');
-            const feedback = control.parentNode.querySelector('.invalid-feedback');
-            if (feedback) {
-                feedback.remove();
-            }
+        
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal && modal.tagName.toLowerCase() === 'dialog') {
+                    modal.close();
+                }
+            });
         });
-        let isValid = true;
-        if (!businessName.value.trim()) {
-            showError(businessName, 'Business name is required');
-            isValid = false;
-        }
-        if (!contactName.value.trim()) {
-            showError(contactName, 'Contact name is required');
-            isValid = false;
-        }
-        if (!phone.value.trim()) {
-            showError(phone, 'Phone number is required');
-            isValid = false;
-        }
-        if (!email.value.trim()) {
-            showError(email, 'Email is required');
-            isValid = false;
-        }
-        if (!membershipLevel) {
-            const membershipSection = document.querySelector('.membership-levels');
-            if (membershipSection) {
-                membershipSection.classList.add('is-invalid');
-            }
-            isValid = false;
-        }
-        if (isValid) {
-            document.getElementById('join-form').submit();
-        }
+        
+        modals.forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                const rect = modal.getBoundingClientRect();
+                const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+                                  rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+                if (!isInDialog) {
+                    modal.close();
+                }
+            });
+        });
+        
+        modals.forEach(modal => {
+            modal.addEventListener('cancel', function(e) {
+            });
+        });
     }
-    function showError(input, message) {
-        input.classList.add('is-invalid');
-        const feedback = document.createElement('div');
-        feedback.className = 'invalid-feedback';
-        feedback.textContent = message;
-        input.parentNode.appendChild(feedback);
+    
+    function initializeFormValidation() {
+        const form = document.getElementById('join-form');
+        if (!form) return;
+        
+        form.addEventListener('submit', function(e) {
+            setTimestamp();            
+        });
+        
+        const orgTitleField = document.getElementById('org-title');
+        if (orgTitleField) {
+            orgTitleField.addEventListener('input', function() {
+                const pattern = /^[a-zA-Z\s\-]{7,}$/;
+                const value = this.value;
+                
+                if (value && !pattern.test(value)) {
+                    this.setCustomValidity('Title must contain only letters, spaces, and hyphens with minimum 7 characters');
+                } else {
+                    this.setCustomValidity('');
+                }
+            });
+        }
+        
+        const requiredFields = form.querySelectorAll('input[required], select[required]');
+        requiredFields.forEach(field => {
+            field.addEventListener('blur', function() {
+                if (!this.value.trim() && this.hasAttribute('required')) {
+                    this.classList.add('error');
+                } else {
+                    this.classList.remove('error');
+                }
+            });
+            
+            field.addEventListener('input', function() {
+                if (this.classList.contains('error') && this.value.trim()) {
+                    this.classList.remove('error');
+                }
+            });
+        });
     }
-    const joinForm = document.getElementById('join-form');
-    if (joinForm) {
-        joinForm.addEventListener('submit', validateForm);
+    
+    function animateMembershipCards() {
+        const cards = document.querySelectorAll('.membership-card');
+        
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 150);
+        });
+        
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '';
+            });
+        });
     }
-    setTimestamp();
+    
+    window.getFormData = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return {
+            firstName: urlParams.get('first-name') || 'N/A',
+            lastName: urlParams.get('last-name') || 'N/A',
+            email: urlParams.get('email') || 'N/A',
+            mobile: urlParams.get('mobile') || 'N/A',
+            businessName: urlParams.get('business-name') || 'N/A',
+            membershipLevel: urlParams.get('membership-level') || 'N/A',
+            timestamp: urlParams.get('timestamp') || 'N/A'
+        };
+    };
 });

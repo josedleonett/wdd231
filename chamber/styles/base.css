@@ -35,9 +35,11 @@
     --color-link-linkedin: #0a66c2;
     --color-button-bg: #002347;       
     --color-button-text: #ffffff;     
-    --color-button-hover: #001a2e;    
-    --color-button-cta: #0078d7;
+    --color-button-hover: #001a2e;      --color-button-cta: #0078d7;
     --color-button-cta-hover: #005a9e;
+    --color-secondary: #6c757d;
+    --color-secondary-dark: #545b62;
+    --color-success-dark: #155724;
     --color-border-light: #bbbbbb;
     --color-border-medium: #999999;   
     --color-border-gray: #e0e0e0;
