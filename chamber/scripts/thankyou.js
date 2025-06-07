@@ -1,11 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Get form data from URL parameters
-    const formData = getFormDataFromURL();
-    
-    // Display the form data
-    displayFormData(formData);
-    
-    function getFormDataFromURL() {
+// Thank you page functionality as ES6 module
+
+export function getFormDataFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         return {
             firstName: urlParams.get('first-name') || 'N/A',
@@ -15,10 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
             businessName: urlParams.get('business-name') || 'N/A',
             membershipLevel: urlParams.get('membership-level') || 'N/A',
             timestamp: urlParams.get('timestamp') || 'N/A'
-        };
-    }
+        };    }
     
-    function displayFormData(data) {
+    export function displayFormData(data) {
         // Display first name
         const firstNameElement = document.getElementById('display-first-name');
         if (firstNameElement) {
@@ -59,10 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const timestampElement = document.getElementById('display-timestamp');
         if (timestampElement) {
             timestampElement.textContent = formatTimestamp(data.timestamp);
-        }
-    }
+        }    }
     
-    function formatMembershipLevel(level) {
+    export function formatMembershipLevel(level) {
         if (level === 'N/A') return level;
         
         switch(level.toLowerCase()) {
@@ -76,10 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 return 'Gold Membership';
             default:
                 return level;
-        }
-    }
+        }    }
     
-    function formatTimestamp(timestamp) {
+    export function formatTimestamp(timestamp) {
         if (timestamp === 'N/A' || !timestamp) return 'N/A';
         
         try {
@@ -94,20 +86,39 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             return date.toLocaleDateString('en-US', options);
         } catch (error) {
-            return timestamp;
-        }
+            return timestamp;        }
     }
     
-    // Add animation to confirmation card
-    const confirmationCard = document.querySelector('.confirmation-card');
-    if (confirmationCard) {
-        confirmationCard.style.opacity = '0';
-        confirmationCard.style.transform = 'translateY(20px)';
-        confirmationCard.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        
-        setTimeout(() => {
-            confirmationCard.style.opacity = '1';
-            confirmationCard.style.transform = 'translateY(0)';
-        }, 300);
+    export function animateConfirmationCard() {
+        // Add animation to confirmation card
+        const confirmationCard = document.querySelector('.confirmation-card');
+        if (confirmationCard) {
+            confirmationCard.style.opacity = '0';
+            confirmationCard.style.transform = 'translateY(20px)';
+            confirmationCard.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
+            setTimeout(() => {
+                confirmationCard.style.opacity = '1';
+                confirmationCard.style.transform = 'translateY(0)';
+            }, 300);
+        }
     }
-});
+
+    export function initThankYouPage() {
+        // Get form data from URL parameters
+        const formData = getFormDataFromURL();
+        
+        // Display the form data
+        displayFormData(formData);
+        
+        // Animate confirmation card
+        animateConfirmationCard();
+    }
+
+    // Default export
+    export default { getFormDataFromURL, displayFormData, formatMembershipLevel, formatTimestamp, animateConfirmationCard, initThankYouPage };
+
+    // Auto-initialize and backward compatibility
+    if (typeof document !== 'undefined') {
+        document.addEventListener('DOMContentLoaded', initThankYouPage);
+    }

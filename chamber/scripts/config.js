@@ -2,10 +2,10 @@
  * Chamber of Commerce Configuration File
  *
  * This file customizes the website for the Chamber of Commerce of Province of Cordoba
- * by modifying the global chamberConfig object.
+ * using ES6 modules for better encapsulation and dependency management.
  */
 
-window.chamberConfig = {
+export const chamberConfig = {
   /**
    * Header Component Configuration
    */
@@ -409,3 +409,14 @@ window.chamberConfig = {
     },
   },
 };
+
+// Named exports for easier imports
+export const { header, footer, weather, directory, memberSpotlight, homepage, membership } = chamberConfig;
+
+// Default export
+export default chamberConfig;
+
+// Backward compatibility - maintain global object for non-module scripts
+if (typeof window !== 'undefined') {
+  window.chamberConfig = chamberConfig;
+}

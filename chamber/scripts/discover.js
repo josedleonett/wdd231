@@ -1,32 +1,31 @@
-document.addEventListener('DOMContentLoaded', function() {
-    function trackVisits() {
-        const visitCounter = document.getElementById('visit-counter');
-        if (!visitCounter) return;
+
+export function trackVisits() {
+    const visitCounter = document.getElementById('visit-counter');
+    if (!visitCounter) return;
+    
+    const lastVisit = localStorage.getItem('lastVisit');
+    const currentDate = new Date();
+    
+    if (!lastVisit) {
+        visitCounter.textContent = "Welcome! This is your first visit to our site.";
+    } else {
+        const previousVisit = new Date(lastVisit);
+        const timeDiff = currentDate.getTime() - previousVisit.getTime();
+        const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         
-        const lastVisit = localStorage.getItem('lastVisit');
-        const currentDate = new Date();
-        
-        if (!lastVisit) {
-            visitCounter.textContent = "Welcome! This is your first visit to our site.";
+        if (daysDiff < 1) {
+            visitCounter.textContent = "Back so soon! Awesome!";
+        } else if (daysDiff === 1) {
+            visitCounter.textContent = "You last visited 1 day ago.";
         } else {
-            const previousVisit = new Date(lastVisit);
-            const timeDiff = currentDate.getTime() - previousVisit.getTime();
-            const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-            
-            if (daysDiff < 1) {
-                visitCounter.textContent = "Back so soon! Awesome!";
-            } else if (daysDiff === 1) {
-                visitCounter.textContent = "You last visited 1 day ago.";
-            } else {
-                visitCounter.textContent = `You last visited ${daysDiff} days ago.`;
-            }
+            visitCounter.textContent = `You last visited ${daysDiff} days ago.`;
         }
-        
-        localStorage.setItem('lastVisit', currentDate.toString());
     }
     
-    trackVisits();
-    
+    localStorage.setItem('lastVisit', currentDate.toString());
+}
+
+export function initLazyLoading() {
     const images = document.querySelectorAll('.attraction-image img');
     
     if ('IntersectionObserver' in window) {
@@ -49,4 +48,25 @@ document.addEventListener('DOMContentLoaded', function() {
             img.src = img.dataset.src;
         });
     }
-});
+}
+
+export function initDiscover() {
+    trackVisits();
+    initLazyLoading();
+}
+
+if (typeof window !== 'undefined') {
+    window.discoverModule = {
+        trackVisits,
+        initLazyLoading,
+        initDiscover
+    };
+}
+
+document.addEventListener('DOMContentLoaded', initDiscover);
+
+export default {
+    trackVisits,
+    initLazyLoading,
+    initDiscover
+};

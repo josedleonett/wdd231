@@ -1,9 +1,10 @@
 /**
  * SVG Icon Helper Utility
  * Provides functions to easily insert SVG icons in the application
+ * ES6 Module version
  */
 
-class SvgIconHelper {
+export class SvgIconHelper {
     constructor(iconBasePath = 'images/icons/') {
         this.iconBasePath = iconBasePath;
         this.iconCache = new Map();
@@ -165,14 +166,24 @@ class SvgIconHelper {
     }
 }
 
-// Create global instance
-window.svgIconHelper = new SvgIconHelper();
+// Create and export default instance
+export const svgIconHelper = new SvgIconHelper();
+
+// Default export
+export default svgIconHelper;
+
+// Backward compatibility - maintain global object for non-module scripts
+if (typeof window !== 'undefined') {
+  window.svgIconHelper = svgIconHelper;
+}
 
 // Auto-initialize when DOM is loaded
-if (document.readyState === 'loading') {
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        window.svgIconHelper.initializeIcons();
+      svgIconHelper.initializeIcons();
     });
-} else {
-    window.svgIconHelper.initializeIcons();
+  } else {
+    svgIconHelper.initializeIcons();
+  }
 }

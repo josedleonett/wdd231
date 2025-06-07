@@ -1,9 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-    window.chamberConfig = window.chamberConfig || {};
-    const config = window.chamberConfig.footer || {};
+import { footer as footerConfig } from './config.js';
+
+export function createFooter() {
+    const config = footerConfig || {};
     
-    function createFooter() {
-        const footer = document.createElement('footer');
+    // Always create a new footer structure
+    const footer = document.createElement('footer');
+    footer.id = 'chamber-footer';
         
         const companyInfoDiv = document.createElement('div');
         companyInfoDiv.className = 'footer-company-info';
@@ -98,28 +100,52 @@ document.addEventListener('DOMContentLoaded', function() {
         footer.appendChild(socialMediaDiv);
         footer.appendChild(authorInfoDiv);
         
-        return footer;
-    }
+        return footer;    }
     
-    function initFooter() {
-        const body = document.body;
+    export function initFooter() {
+    const body = document.body;
+    
+    // Check if we have existing footer element
+    let footer = document.getElementById('chamber-footer');
+    
+    if (!footer) {
+        // If no existing footer element, create one and append
         const existingFooter = document.querySelector('footer');
-        
         if (existingFooter) {
             existingFooter.remove();
         }
-        const footer = createFooter();
+        footer = createFooter();
         body.appendChild(footer);
-        
-        const yearSpan = document.getElementById('current-year');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
-        const lastModSpan = document.getElementById('last-modification-date');
-        if (lastModSpan) {
-            lastModSpan.textContent = document.lastModified;
+    } else {
+        // Use existing footer element, populate it
+        const footerContent = createFooter();
+        footer.innerHTML = '';
+        // Move children from created footer to existing footer
+        while (footerContent.firstChild) {
+            footer.appendChild(footerContent.firstChild);
         }
     }
     
-    initFooter();
-});
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+    const lastModSpan = document.getElementById('last-modification-date');
+    if (lastModSpan) {
+        lastModSpan.textContent = document.lastModified;
+    }
+}
+
+    // Default export
+    export default { createFooter, initFooter };
+
+    // Auto-initialize and backward compatibility
+    if (typeof document !== 'undefined') {
+        document.addEventListener('DOMContentLoaded', initFooter);
+    }
+
+    // Backward compatibility - maintain global behavior for non-module scripts
+    if (typeof window !== 'undefined') {
+        window.chamberConfig = window.chamberConfig || {};
+        window.initFooter = initFooter;
+    }

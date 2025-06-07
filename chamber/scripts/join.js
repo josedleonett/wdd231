@@ -1,18 +1,13 @@
-document.addEventListener('DOMContentLoaded', function() {
-    setTimestamp();
-    initializeModals();
-    initializeFormValidation();
-    
-    animateMembershipCards();
-    
-    function setTimestamp() {
+// Join page functionality as ES6 module
+
+export function setTimestamp() {
         const timestampField = document.getElementById('timestamp');
         if (timestampField) {
             const now = new Date();
             timestampField.value = now.toISOString();
-        }
-    }
-      function initializeModals() {
+        }    }
+
+export function initializeModals() {
         const modalButtons = document.querySelectorAll('[data-modal]');
         const modals = document.querySelectorAll('dialog.modal');
         const closeButtons = document.querySelectorAll('.close-button');
@@ -55,10 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
         modals.forEach(modal => {
             modal.addEventListener('cancel', function(e) {
             });
-        });
-    }
+        });    }
     
-    function initializeFormValidation() {
+    export function initializeFormValidation() {
         const form = document.getElementById('join-form');
         if (!form) return;
         
@@ -94,11 +88,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (this.classList.contains('error') && this.value.trim()) {
                     this.classList.remove('error');
                 }
-            });
-        });
+            });        });
     }
     
-    function animateMembershipCards() {
+    export function animateMembershipCards() {
         const cards = document.querySelectorAll('.membership-card');
         
         cards.forEach((card, index) => {
@@ -121,11 +114,10 @@ document.addEventListener('DOMContentLoaded', function() {
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
                 this.style.boxShadow = '';
-            });
-        });
+            });        });
     }
     
-    window.getFormData = function() {
+    export function getFormData() {
         const urlParams = new URLSearchParams(window.location.search);
         return {
             firstName: urlParams.get('first-name') || 'N/A',
@@ -136,5 +128,24 @@ document.addEventListener('DOMContentLoaded', function() {
             membershipLevel: urlParams.get('membership-level') || 'N/A',
             timestamp: urlParams.get('timestamp') || 'N/A'
         };
-    };
-});
+    }
+
+    export function initJoinPage() {
+        setTimestamp();
+        initializeModals();
+        initializeFormValidation();
+        animateMembershipCards();
+    }
+
+    // Default export
+    export default { setTimestamp, initializeModals, initializeFormValidation, animateMembershipCards, getFormData, initJoinPage };
+
+    // Auto-initialize and backward compatibility
+    if (typeof document !== 'undefined') {
+        document.addEventListener('DOMContentLoaded', initJoinPage);
+    }
+
+    // Backward compatibility - maintain global function for non-module scripts
+    if (typeof window !== 'undefined') {
+        window.getFormData = getFormData;
+    }
