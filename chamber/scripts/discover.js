@@ -1,5 +1,4 @@
 
-// Load attractions from JSON data
 export async function loadAttractions() {
     try {
         const response = await fetch('data/attractions.json');
@@ -10,7 +9,6 @@ export async function loadAttractions() {
     }
 }
 
-// Display attractions in the gallery
 function displayAttractions(attractions) {
     const gallery = document.getElementById('attractions-gallery');
     if (!gallery) return;
@@ -39,7 +37,6 @@ function displayAttractions(attractions) {
         gallery.appendChild(card);
     });
     
-    // Initialize lazy loading after cards are created
     initLazyLoading();
 }
 
@@ -91,7 +88,6 @@ export function initLazyLoading() {
             imageObserver.observe(img);
         });
     } else {
-        // Fallback for older browsers
         images.forEach(img => {
             img.src = img.dataset.src;
             img.removeAttribute('data-src');
