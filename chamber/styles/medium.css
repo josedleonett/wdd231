@@ -1,0 +1,76 @@
+/* Medium screen styles for Chamber Discover Page */
+/* This file contains styles specifically for medium screens (641px to 1024px) */
+
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+    /* Main container adjustments for medium screens */
+    .discover-container {
+        grid-template-areas: 
+            "main sidebar";
+        grid-template-columns: 2fr 1fr;
+        gap: 2.5rem;
+    }
+    
+    /* Attractions gallery - 2 column layout */
+    .attractions-gallery {
+        grid-template-areas:
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+        gap: 2rem;
+    }
+    
+    /* Hero section adjustments */
+    .hero {
+        padding: 3rem 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 1rem auto;
+    }
+      /* Demographics grid optimization for sidebar in medium screens */
+    .demographics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .demographic-item {
+        padding: 1.2rem;
+    }
+    
+    .demographic-value {
+        font-size: 1.6rem;
+    }
+    
+    /* Visit counter styling for medium screens */
+    .visit-counter {
+        padding: 2rem;
+        font-size: 1.2rem;
+    }
+    
+    /* Card content adjustments */
+    .attraction-content {
+        padding: 2rem;
+    }
+    
+    .attraction-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .attraction-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    /* Button improvements for medium screens */
+    .learn-more-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}

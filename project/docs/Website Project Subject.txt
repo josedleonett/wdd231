@@ -1,0 +1,49 @@
+Website Project Subject:
+Garden Planner – Personal planting planner
+Description of the planned site content:
+This website will be an interactive planner to help people organize their home garden based on location, climate, and season.
+-	Home (index.html): Short introduction to the project, benefits of gardening, and how to use the site.
+
+-	Planner (planner.html): Users can select their climate zone (using geolocation or manually), and the site will suggest what to plant, when to water, and how to take care of plants. This information will come from a free API (Trefle.io).
+
+-	My Garden (my-plants.html): A page with a form where users can save their favorite plants and see a summary of their tasks (stored in localStorage). A modal will also show more details about a specific plant.
+
+Reason and purpose for the project:
+I chose this topic because I am interested in technology applied to sustainability. This site will help beginners plan their garden easily and promote healthy and eco-friendly habits.
+From a technical perspective, this project challenges me to apply JavaScript with APIs, forms, modals, and local storage, all from scratch.
+ 
+Style guide:
+
+:root {
+  /* Colors */
+  --color-bg-main: #F0F8F4;
+  --color-bg-section: #D9E8E3;
+  --color-primary: #4CAF50;
+  --color-primary-dark: #1B5E20;
+  --color-text-main: #0D0D0D;
+  --color-text-secondary: #2A2A2A;
+  --color-warning: #FFF9C4;
+  --color-modal-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Font sizes */
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 3rem;
+
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Spacing & borders */
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}

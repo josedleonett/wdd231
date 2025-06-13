@@ -1,19 +1,85 @@
+/* Grid areas layout for discover page */
 .discover-container {
     display: grid;
+    grid-template-areas: 
+        "main"
+        "sidebar";
     grid-template-columns: 1fr;
     gap: 2rem;
 }
 
-@media screen and (min-width: 768px) {
+.discover-main {
+    grid-area: main;
+}
+
+.discover-sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Small screens (320px to 640px) - 1 column layout */
+.attractions-gallery {
+    display: grid;
+    grid-template-areas:
+        "card1"
+        "card2"
+        "card3"
+        "card4"
+        "card5"
+        "card6"
+        "card7"
+        "card8";
+    gap: 1.5rem;
+}
+
+.attraction-card:nth-child(1) { grid-area: card1; }
+.attraction-card:nth-child(2) { grid-area: card2; }
+.attraction-card:nth-child(3) { grid-area: card3; }
+.attraction-card:nth-child(4) { grid-area: card4; }
+.attraction-card:nth-child(5) { grid-area: card5; }
+.attraction-card:nth-child(6) { grid-area: card6; }
+.attraction-card:nth-child(7) { grid-area: card7; }
+.attraction-card:nth-child(8) { grid-area: card8; }
+
+/* Medium screens (641px to 1024px) - 2 column layout */
+@media screen and (min-width: 641px) and (max-width: 1024px) {
     .discover-container {
+        grid-template-areas: 
+            "main sidebar";
         grid-template-columns: 2fr 1fr;
+    }
+    
+    .attractions-gallery {
+        grid-template-areas:
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
     }
 }
 
-.attractions-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+/* Large screens (1025px and above) - 3 column layout */
+@media screen and (min-width: 1025px) {
+    .discover-container {
+        grid-template-areas: 
+            "main sidebar";
+        grid-template-columns: 3fr 1fr;
+    }
+    
+    .attractions-gallery {
+        grid-template-areas:
+            "card1 card2 card3"
+            "card4 card5 card6"
+            "card7 card8 card8";
+    }
+    
+    /* Single column layout for demographics in large screens sidebar */
+    .demographics-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
 }
 
 .attraction-card {
@@ -22,11 +88,21 @@
     overflow: hidden;
     box-shadow: var(--shadow-card);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.attraction-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-card-hover);
+/* Hover effects only on larger screens (not mobile) */
+@media screen and (min-width: 641px) {
+    .attraction-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-card-hover);
+    }
+    
+    .attraction-card:hover .attraction-image img {
+        transform: scale(1.05);
+        filter: brightness(1.1) contrast(1.1);
+    }
 }
 
 body.dark-mode .attraction-card {
@@ -43,18 +119,17 @@ body.dark-mode .attraction-card {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.attraction-card:hover .attraction-image img {
-    transform: scale(1.05);
+    transition: transform 0.5s ease, filter 0.3s ease;
 }
 
 .attraction-content {
     padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.attraction-content h3 {
+.attraction-content h2 {
     margin-top: 0;
     margin-bottom: 0.5rem;
     color: var(--color-text-black);
@@ -62,17 +137,85 @@ body.dark-mode .attraction-card {
     font-family: 'Volkhov', serif;
 }
 
-body.dark-mode .attraction-content h3 {
+body.dark-mode .attraction-content h2 {
     color: var(--color-dark-text-light);
+}
+
+.attraction-content address {
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+body.dark-mode .attraction-content address {
+    color: var(--color-link-twitter);
 }
 
 .attraction-content p {
     margin: 0.5rem 0;
     color: var(--color-text-dark);
     font-size: 0.95rem;
+    flex-grow: 1;
 }
 
 body.dark-mode .attraction-content p {
+    color: var(--color-dark-text-secondary);
+}
+
+.learn-more-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.learn-more-btn:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.learn-more-btn:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+body.dark-mode .learn-more-btn {
+    background-color: var(--color-link-twitter);
+}
+
+body.dark-mode .learn-more-btn:hover {
+    background-color: var(--color-link-twitter-dark);
+}
+
+body.dark-mode .attraction-content h3 {
+    color: var(--color-dark-text-light);
+}
+
+.detail-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-text-black);
+}
+
+body.dark-mode .detail-value {
+    color: var(--color-dark-text-light);
+}
+
+.detail-label {
+    font-size: 0.9rem;
+    color: var(--color-text-dark);
+}
+
+body.dark-mode .detail-label {
     color: var(--color-dark-text-secondary);
 }
 
@@ -130,72 +273,99 @@ body.dark-mode .current-temp {
     text-align: center;
 }
 
-.detail-value {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--color-text-black);
-}
-
-body.dark-mode .detail-value {
-    color: var(--color-dark-text-light);
-}
-
-.detail-label {
-    font-size: 0.9rem;
-    color: var(--color-text-dark);
-}
-
-body.dark-mode .detail-label {
-    color: var(--color-dark-text-secondary);
-}
-
-.local-events {
+/* Visit counter styling */
+.visit-counter {
     background-color: var(--color-bg-white);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: var(--shadow-card);
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    border-left: 4px solid var(--color-primary);
 }
 
-body.dark-mode .local-events {
+body.dark-mode .visit-counter {
     background-color: var(--color-dark-bg-secondary);
     box-shadow: var(--shadow-card-dark);
+    color: var(--color-dark-text-light);
+    border-left-color: var(--color-link-twitter);
 }
 
-.event-item {
+/* Demographics styling improvements - optimized for sidebar */
+.demographics {
+    margin-top: 2rem;
+}
+
+.demographics h2 {
     margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--color-border-light);
-}
-
-body.dark-mode .event-item {
-    border-bottom-color: var(--color-border-dark);
-}
-
-.event-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.event-date {
-    font-weight: bold;
-    color: var(--color-primary);
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
-}
-
-body.dark-mode .event-date {
-    color: var(--color-link-twitter);
-}
-
-.event-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    text-align: center;
     color: var(--color-text-black);
 }
 
-body.dark-mode .event-title {
+body.dark-mode .demographics h2 {
     color: var(--color-dark-text-light);
+}
+
+.demographics-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Medium and large screens - adjust demographics for sidebar */
+@media screen and (min-width: 641px) {
+    .demographics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .demographics-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+}
+
+.demographic-item {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--color-bg-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-card);
+    border-left: 3px solid var(--color-primary);
+}
+
+body.dark-mode .demographic-item {
+    background-color: var(--color-dark-bg-secondary);
+    box-shadow: var(--shadow-card-dark);
+    border-left-color: var(--color-link-twitter);
+}
+
+.demographic-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+body.dark-mode .demographic-value {
+    color: var(--color-link-twitter);
+}
+
+.demographic-label {
+    font-size: 0.85rem;
+    color: var(--color-text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+body.dark-mode .demographic-label {
+    color: var(--color-dark-text-secondary);
 }
 
 /* Encabezados proporcionales y accesibles (escala estándar) */

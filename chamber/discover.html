@@ -5,16 +5,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Discover | Chamber of Commerce Project</title>
-        <meta name="description" content="Discover the Province of Cordoba and learn about our local community, attractions, and businesses.">
+        <meta name="description"
+            content="Discover the Province of Cordoba and learn about our local community, attractions, and businesses.">
         <meta name="author" content="Jose D. Leonett">
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet">
         <link rel="stylesheet" href="styles/base.css">
         <link rel="stylesheet" href="styles/base-mobile.css" media="(max-width: 320px)">
+        <link rel="stylesheet" href="styles/medium.css">
         <link rel="stylesheet" href="styles/discover.css">
-        <link rel="stylesheet" href="styles/icons.css">        <script type="module" src="scripts/config.js"></script>
+        <link rel="stylesheet" href="styles/icons.css">
+        <script type="module" src="scripts/config.js"></script>
         <script type="module" src="scripts/header.js"></script>
         <script type="module" src="scripts/footer.js"></script>
         <script type="module" src="scripts/discover.js"></script>
@@ -25,7 +29,10 @@
         <meta property="og:url" content="https://josedleonett.github.io/wdd231/chamber/discover.html">
         <meta property="og:type" content="website">
         <meta property="og:locale" content="en_US">
-        <meta property="og:site_name" content="Chamber of Commerce of Province of Cordoba">    </head>    <body>
+        <meta property="og:site_name" content="Chamber of Commerce of Province of Cordoba">
+    </head>
+
+    <body>
         <header id="chamber-header">
             <!-- Header content will be populated by header.js -->
             <nav id="chamber-nav">
@@ -35,89 +42,20 @@
         <main>
             <section class="hero">
                 <h1>Discover Cordoba</h1>
-                <p>Explore the beautiful Province of Cordoba and learn about our local community, attractions, and
-                    businesses.</p>
+                <p>Explore the beautiful Province of Cordoba and learn about our local community, attractions, and businesses.</p>
             </section>
-
             <div class="discover-container">
                 <section class="discover-main">
                     <h2>Local Attractions</h2>
-                    <div class="attractions-gallery">
-                        <!-- Attraction 1 -->
-                        <div class="attraction-card">
-                            <div class="attraction-image">
-                                <img data-src="images/attractions/attraction1.jpg" src="images/placeholder.svg"
-                                    alt="Cathedral of Cordoba">
-                            </div>
-                            <div class="attraction-content">
-                                <h3>Cathedral of Cordoba</h3>
-                                <p>The beautiful historic cathedral in the center of Cordoba, dating back to the 16th
-                                    century.</p>
-                            </div>
-                        </div>
+                    <div class="attractions-gallery" id="attractions-gallery">
+                        <!-- Attractions will be dynamically loaded from JSON -->
+                    </div>
+                </section>
 
-                        <!-- Attraction 2 -->
-                        <div class="attraction-card">
-                            <div class="attraction-image">
-                                <img data-src="images/attractions/attraction2.jpg" src="images/placeholder.svg"
-                                    alt="Lake San Roque">
-                            </div>
-                            <div class="attraction-content">
-                                <h3>Lake San Roque</h3>
-                                <p>A stunning lake surrounded by mountains, perfect for outdoor activities and
-                                    relaxation.</p>
-                            </div>
-                        </div>
-
-                        <!-- Attraction 3 -->
-                        <div class="attraction-card">
-                            <div class="attraction-image">
-                                <img data-src="images/attractions/attraction3.jpg" src="images/placeholder.svg"
-                                    alt="Sierras de Cordoba">
-                            </div>
-                            <div class="attraction-content">
-                                <h3>Sierras de Cordoba</h3>
-                                <p>The magnificent mountain range offering breathtaking views and hiking trails.</p>
-                            </div>
-                        </div>
-
-                        <!-- Attraction 4 -->
-                        <div class="attraction-card">
-                            <div class="attraction-image">
-                                <img data-src="images/attractions/attraction4.jpg" src="images/placeholder.svg"
-                                    alt="Jesuit Block">
-                            </div>
-                            <div class="attraction-content">
-                                <h3>Jesuit Block</h3>
-                                <p>A UNESCO World Heritage site featuring well-preserved Jesuit buildings from the 17th
-                                    century.</p>
-                            </div>
-                        </div>
-
-                        <!-- Attraction 5 -->
-                        <div class="attraction-card">
-                            <div class="attraction-image">
-                                <img data-src="images/attractions/attraction5.jpg" src="images/placeholder.svg"
-                                    alt="Capilla del Monte">
-                            </div>
-                            <div class="attraction-content">
-                                <h3>Capilla del Monte</h3>
-                                <p>Famous for its mystical Uritorco Hill and beautiful natural landscapes.</p>
-                            </div>
-                        </div>
-
-                        <!-- Attraction 6 -->
-                        <div class="attraction-card">
-                            <div class="attraction-image">
-                                <img data-src="images/attractions/attraction6.jpg" src="images/placeholder.svg"
-                                    alt="National University of Cordoba">
-                            </div>
-                            <div class="attraction-content">
-                                <h3>National University of Cordoba</h3>
-                                <p>Founded in 1613, it's the oldest university in Argentina with beautiful historic
-                                    buildings.</p>
-                            </div>
-                        </div>
+                <aside class="discover-sidebar">
+                    <div class="visit-counter" id="visit-counter">
+                        <!-- Visit counter will be dynamically updated by discover.js -->
+                        Checking your visit history...
                     </div>
 
                     <section class="demographics">
@@ -144,15 +82,10 @@
                                 <div class="demographic-label">Businesses</div>
                             </div>
                         </div>
-                    </section>                </section>
-
-                <aside class="discover-sidebar">
-                    <div class="visit-counter" id="visit-counter">
-                        <!-- Visit counter will be dynamically updated by discover.js -->
-                        Checking your visit history...
-                    </div>
+                    </section>
                 </aside>
-            </div>        </main>
+            </div>
+        </main>
         <footer id="chamber-footer">
             <!-- Footer content will be populated by footer.js -->
         </footer>

@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Cathedral of Cordoba",
+    "address": "Independencia 92, X5000 Córdoba, Argentina",
+    "description": "The beautiful historic cathedral in the center of Cordoba, dating back to the 16th century. This magnificent baroque cathedral is one of the most important religious buildings in Argentina.",
+    "image": "images/attractions/attraction1.webp",
+    "alt": "Cathedral of Cordoba with its impressive baroque architecture"
+  },
+  {
+    "id": 2,
+    "name": "Lake San Roque",
+    "address": "Villa Carlos Paz, Córdoba, Argentina",
+    "description": "A stunning lake surrounded by mountains, perfect for outdoor activities and relaxation. This artificial lake offers water sports, fishing, and beautiful scenic views.",
+    "image": "images/attractions/attraction2.webp",
+    "alt": "Lake San Roque surrounded by Cordoba mountains"
+  },
+  {
+    "id": 3,
+    "name": "Sierras de Cordoba",
+    "address": "Cordoba Mountain Range, Córdoba Province, Argentina",
+    "description": "The magnificent mountain range offering breathtaking views and hiking trails. These ancient mountains provide excellent opportunities for trekking and nature photography.",
+    "image": "images/attractions/attraction3.webp",
+    "alt": "Sierras de Cordoba mountain landscape"
+  },
+  {
+    "id": 4,
+    "name": "Jesuit Block",
+    "address": "Caseros 124, X5000 Córdoba, Argentina",
+    "description": "A UNESCO World Heritage site featuring well-preserved Jesuit buildings from the 17th century. This historic complex showcases colonial architecture and educational heritage.",
+    "image": "images/attractions/attraction4.webp",
+    "alt": "Historic Jesuit Block colonial architecture"
+  },
+  {
+    "id": 5,
+    "name": "Capilla del Monte",
+    "address": "Capilla del Monte, Córdoba, Argentina",
+    "description": "Famous for its mystical Uritorco Hill and beautiful natural landscapes. This charming town attracts visitors seeking spiritual experiences and outdoor adventures.",
+    "image": "images/attractions/attraction5.webp",
+    "alt": "Capilla del Monte town with Uritorco Hill in background"
+  },
+  {
+    "id": 6,
+    "name": "National University of Cordoba",
+    "address": "Haya de la Torre s/n, X5000 Córdoba, Argentina",
+    "description": "Founded in 1613, it's the oldest university in Argentina with beautiful historic buildings. This prestigious institution represents centuries of academic excellence and architectural beauty.",
+    "image": "images/attractions/attraction6.webp",
+    "alt": "National University of Cordoba historic campus"
+  },
+  {
+    "id": 7,
+    "name": "Cerro de la Cruz",
+    "address": "La Cumbre, Córdoba, Argentina",
+    "description": "A scenic viewpoint offering panoramic views of the Punilla Valley and surrounding mountains. This popular hiking destination provides spectacular sunrise and sunset views.",
+    "image": "images/attractions/attraction7.webp",
+    "alt": "Cerro de la Cruz viewpoint overlooking Punilla Valley"
+  },
+  {
+    "id": 8,
+    "name": "Estancia Jesuítica de Caroya",
+    "address": "Caroya, Córdoba, Argentina",
+    "description": "A historic Jesuit estancia showcasing colonial agricultural practices and architecture. This UNESCO World Heritage site preserves 17th-century farming traditions and religious heritage.",
+    "image": "images/attractions/attraction8.webp",
+    "alt": "Estancia Jesuítica de Caroya historic colonial buildings"
+  }
+]
