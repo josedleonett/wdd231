@@ -1,0 +1,253 @@
+/* Mobile responsive styles */
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-section);
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem;
+    border-top: 1px solid var(--color-primary);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed);
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  /* Hero section mobile */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .hero-content h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  /* Benefits grid mobile */
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Steps mobile */
+  .step {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .step-number {
+    align-self: center;
+  }
+
+  /* Quick start mobile */
+  .quick-start-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .quick-start-actions .primary-button,
+  .quick-start-actions .secondary-button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Font size adjustments */
+  h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  h2 {
+    font-size: var(--font-size-md);
+  }
+
+  /* Section padding adjustments */
+  section {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Footer mobile */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  /* Success notifications mobile */
+  .success-notification {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1001;
+    animation: slideDown 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .confirmation-dialog[open],
+  .plant-details-dialog[open] {
+    width: 95%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    max-height: 90vh;
+  }
+
+  .dialog-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .dialog-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .dialog-btn {
+    width: 100%;
+  }
+
+  .plant-details-specs {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .plant-details-dialog .dialog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0.5rem 1rem;
+  }
+
+  .logo h1 {
+    font-size: var(--font-size-base);
+  }
+
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-content h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .benefit-card {
+    padding: 1.5rem;
+  }
+
+  .benefit-card .material-icons {
+    font-size: 2.5rem;
+  }
+
+  .step {
+    padding: 1.5rem;
+  }
+
+  .step-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: var(--font-size-base);
+  }
+
+  .cta-button,
+  .primary-button,
+  .secondary-button {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-image {
+    order: 0;
+  }
+
+  .hero-content {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-content h2 {
+    font-size: 3.5rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .steps {
+    max-width: 1000px;
+  }
+
+  .step {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
+  .hero-image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}

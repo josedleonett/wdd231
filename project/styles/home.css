@@ -1,0 +1,163 @@
+/* Hero section */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, var(--color-bg-main) 0%, var(--color-bg-section) 100%);
+}
+
+.hero-content h2 {
+  font-size: var(--font-size-xxl);
+  margin-bottom: 1.5rem;
+  color: var(--color-primary-dark);
+}
+
+.hero-content p {
+  font-size: var(--font-size-md);
+  margin-bottom: 2rem;
+  color: var(--color-text-secondary);
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Benefits section */
+.benefits {
+  background-color: var(--color-bg-section);
+  border-radius: var(--border-radius);
+  margin: 2rem 1rem;
+}
+
+.benefits h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-card {
+  background-color: var(--color-bg-main);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed);
+}
+
+.benefit-card:hover {
+  transform: translateY(-4px);
+}
+
+.benefit-card .material-icons {
+  font-size: 3rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+  margin-bottom: 1rem;
+  color: var(--color-primary-dark);
+}
+
+/* How to use section */
+.how-to-use {
+  margin: 3rem 1rem;
+}
+
+.how-to-use h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: var(--color-bg-section);
+  border-radius: var(--border-radius);
+}
+
+.step-number {
+  background-color: var(--color-primary);
+  color: white;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  margin-bottom: 0.5rem;
+  color: var(--color-primary-dark);
+}
+
+/* Quick start section */
+.quick-start {
+  background: var(--color-primary-dark) ;
+  color: white;
+  text-align: center;
+  margin: 3rem 1rem;
+  border-radius: var(--border-radius);
+}
+
+.quick-start-content h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.quick-start-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--font-size-lg);
+  margin-bottom: 2rem;
+}
+
+.quick-start-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.quick-start .primary-button {
+  background-color: white;
+  color: var(--color-primary);
+}
+
+.quick-start .primary-button:hover {
+  background-color: var(--color-bg-main);
+  color: var(--color-primary-dark);
+}
+
+.quick-start .secondary-button {
+  border-color: white;
+  color: white;
+}
+
+.quick-start .secondary-button:hover {
+  background-color: white;
+  color: var(--color-primary);
+}

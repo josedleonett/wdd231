@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Garden Planner - Discover the perfect plants for your climate zone with our interactive plant recommendation tool.">
+    <meta name="author" content="Jose D. Leonett">
+    <meta property="og:title" content="Plant Planner - Garden Planner">
+    <meta property="og:description" content="Get personalized plant recommendations based on your climate zone and growing preferences.">
+    <meta property="og:type" content="website">
+    <title>Plant Planner - Garden Planner</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/planner.css">
+    <link rel="stylesheet" href="styles/base-mobile.css">
+    <script type="module" src="scripts/planner.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span class="material-icons">eco</span>
+                <h1>Garden Planner</h1>
+            </div>
+            <nav>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span class="material-icons">menu</span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="planner.html" class="active">Planner</a></li>
+                    <li><a href="my-garden.html">My Garden</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="planner-hero">
+            <div class="hero-content">
+                <h2>Find Your Perfect Plants</h2>
+                <p>Discover plants that will thrive in your specific climate zone and growing conditions.</p>
+            </div>
+        </section>
+
+        <section class="location-selector">
+            <div class="selector-container">
+                <h3>Select Your Location</h3>
+                <div class="location-options">
+                    <button id="geolocation-btn" class="location-btn">
+                        <span class="material-icons">my_location</span>
+                        Use My Location
+                    </button>
+                    <div class="manual-selection">
+                        <label for="climate-zone">Or choose your climate zone:</label>
+                        <select id="climate-zone" name="climate-zone">
+                            <option value="">Select a zone</option>
+                            <option value="tropical">Tropical (USDA 10-11)</option>
+                            <option value="subtropical">Subtropical (USDA 9-10)</option>
+                            <option value="temperate">Temperate (USDA 6-8)</option>
+                            <option value="cold">Cold (USDA 3-5)</option>
+                            <option value="arid">Arid/Desert (USDA 8-10)</option>
+                            <option value="mediterranean">Mediterranean (USDA 9-10)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters-section hidden" id="filters-section">
+            <div class="filters-container">
+                <h3>Filter Plants</h3>
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label for="plant-type">Plant Type:</label>
+                        <select id="plant-type">
+                            <option value="">All Types</option>
+                            <option value="vegetable">Vegetables</option>
+                            <option value="herb">Herbs</option>
+                            <option value="flower">Flowers</option>
+                            <option value="fruit">Fruits</option>
+                            <option value="tree">Trees</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="difficulty">Growing Difficulty:</label>
+                        <select id="difficulty">
+                            <option value="">All Levels</option>
+                            <option value="easy">Easy</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="challenging">Challenging</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="season">Planting Season:</label>
+                        <select id="season">
+                            <option value="">All Seasons</option>
+                            <option value="spring">Spring</option>
+                            <option value="summer">Summer</option>
+                            <option value="fall">Fall</option>
+                            <option value="winter">Winter</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="search-plants">Search Plants:</label>
+                        <input type="text" id="search-plants" placeholder="Search by name...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="plants-results hidden" id="plants-results">
+            <div class="results-header">
+                <h3>Recommended Plants</h3>
+                <div class="results-count">
+                    <span id="results-count">0</span> plants found
+                </div>
+            </div>
+            <div class="loading-indicator hidden" id="loading-indicator">
+                <span class="material-icons">hourglass_empty</span>
+                <p>Loading plant recommendations...</p>
+            </div>
+            <div class="error-message hidden" id="error-message">
+                <span class="material-icons">error</span>
+                <p>Unable to load plant data. Please try again.</p>
+            </div>
+            <div class="plants-grid" id="plants-grid">
+                <!-- Plants will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Plant Details Dialog -->
+    <dialog class="plant-details-dialog" id="plant-details-dialog">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <h3 id="details-plant-name">Plant Details</h3>
+                <button class="dialog-close" id="details-close">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="dialog-body">
+                <div class="plant-details-info">
+                    <div class="plant-details-main">
+                        <h4 id="details-scientific-name">Scientific Name</h4>
+                        <p id="details-description">Description will appear here.</p>
+                    </div>
+                    <div class="plant-details-care">
+                        <h4>Care Instructions</h4>
+                        <p id="details-care-instructions">Care instructions will appear here.</p>
+                    </div>                    <div class="plant-details-specs">
+                        <div class="spec-row">
+                            <span class="emoji-icon">🏷️</span>
+                            <span id="details-type">Type</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="emoji-icon">📈</span>
+                            <span id="details-difficulty">Difficulty</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="emoji-icon">☀️</span>
+                            <span id="details-sun">Sun Requirements</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="emoji-icon">💧</span>
+                            <span id="details-watering">Watering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-actions">
+                <button class="dialog-btn secondary" id="details-cancel">Close</button>
+                <button class="dialog-btn primary" id="details-save">Save Plant</button>
+            </div>
+        </div>
+    </dialog>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Garden Planner</h3>
+                <p>Your digital gardening companion for sustainable growing.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="planner.html">Plant Planner</a></li>
+                    <li><a href="my-garden.html">My Garden</a></li>
+                    <li><a href="#">Attributions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Project Info</h3>
+                <p><a href="#" target="_blank">Video Demonstration</a></p>
+                <p>&copy; 2025 Jose D. Leonett | WDD 231 Project</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
