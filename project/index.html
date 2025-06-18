@@ -1,110 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Garden Planner - An interactive digital tool to help organize and manage your home garden based on location, climate, and seasonal requirements.">
-    <meta name="author" content="Jose D. Leonett">
-    <meta property="og:title" content="Garden Planner - Personal Planting Planner">
-    <meta property="og:description" content="Plan your perfect garden with climate-based recommendations and personalized care schedules.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://josedleonett.github.io/wdd231/project/index.html">
-    <meta property="og:image" content="https://josedleonett.github.io/wdd231/project/images/hero-garden.webp">
-    <title>Garden Planner - Home</title>
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/home.css">
-    <link rel="stylesheet" href="styles/base-mobile.css">
-    <script type="module" src="scripts/header.js"></script>
-    <script type="module" src="scripts/footer.js"></script>
-    <script type="module" src="scripts/home.js"></script>
-</head>
-<body>
-    <header id="garden-header">
-        <!-- Header content will be populated by header.js -->
-        <nav id="garden-nav">
-            <!-- Navigation will be populated by header.js -->
-        </nav>
-    </header>
 
-    <main>        <section id="hero">
-            <div>
-                <h1>Plan Your Perfect Garden</h1>
-                <p>Discover the best plants for your climate zone and create a thriving garden with personalized recommendations and care schedules.</p>
-                <a href="planner.html" class="cta-button">
-                    <span class="material-icons">nature</span>
-                    Start Planning
-                </a>
-            </div>
-            <div>
-                <img src="images/hero-garden.webp" alt="Beautiful home garden with various plants" loading="lazy">
-            </div>
-        </section>        <section id="benefits">
-            <h2>Why Garden Planning Matters</h2>
-            <div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="Garden Planner - An interactive digital tool to help organize and manage your home garden based on location, climate, and seasonal requirements.">
+        <meta name="author" content="Jose D. Leonett">
+        <meta property="og:title" content="Garden Planner - Personal Planting Planner">
+        <meta property="og:description"
+            content="Plan your perfect garden with climate-based recommendations and personalized care schedules.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://josedleonett.github.io/wdd231/project/index.html">
+        <meta property="og:image" content="https://josedleonett.github.io/wdd231/project/images/hero-garden.webp">
+        <title>Garden Planner - Home</title>
+        <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;900&display=swap"
+            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/home.css">
+        <link rel="stylesheet" href="styles/base-mobile.css">
+        <script type="module" src="scripts/header.js"></script>
+        <script type="module" src="scripts/footer.js"></script>
+        <script type="module" src="scripts/home.js"></script>
+    </head>
+
+    <body>        <header>
+            <!-- Header content will be populated by header.js -->
+            <nav>
+                <!-- Navigation will be populated by header.js -->
+            </nav>
+        </header>
+
+        <main>
+            <section id="hero">
                 <div>
-                    <span class="material-icons">wb_sunny</span>
-                    <h3>Climate Smart</h3>
-                    <p>Get recommendations based on your specific climate zone and seasonal patterns for optimal plant growth.</p>
-                </div>
-                <div>
-                    <span class="material-icons">schedule</span>
-                    <h3>Perfect Timing</h3>
-                    <p>Know exactly when to plant, water, and harvest with personalized care schedules.</p>
-                </div>
-                <div>
-                    <span class="material-icons">eco</span>
-                    <h3>Sustainable Growing</h3>
-                    <p>Promote eco-friendly gardening practices that benefit both your plants and the environment.</p>
-                </div>
-            </div>
-        </section>        <section id="how-to-use">
-            <h2>How to Use Garden Planner</h2>
-            <div>
-                <div>
-                    <div>1</div>
-                    <div>
-                        <h3>Choose Your Location</h3>
-                        <p>Select your climate zone manually or use geolocation for automatic detection.</p>
-                    </div>
-                </div>
-                <div>
-                    <div>2</div>
-                    <div>
-                        <h3>Discover Plants</h3>
-                        <p>Browse climate-appropriate plants with detailed growing information and care instructions.</p>
-                    </div>
-                </div>
-                <div>
-                    <div>3</div>
-                    <div>
-                        <h3>Save Your Favorites</h3>
-                        <p>Create your personal garden collection and track care schedules for each plant.</p>
-                    </div>
-                </div>
-            </div>
-        </section>        <section id="quick-start">
-            <div>
-                <h2>Ready to Start Gardening?</h2>
-                <p>Join thousands of gardeners who have transformed their outdoor spaces with smart planning and expert guidance.</p>
-                <div>
-                    <a href="planner.html" class="primary-button">
-                        <span class="material-icons">search</span>
-                        Find Plants
-                    </a>
-                    <a href="my-garden.html" class="secondary-button">
-                        <span class="material-icons">bookmark</span>
-                        My Garden
+                    <h1>Plan Your Perfect Garden</h1>
+                    <p>Discover the best plants for your climate zone and create a thriving garden with personalized
+                        recommendations and care schedules.</p>
+                    <a href="planner.html" class="cta-button">
+                        <span class="material-icons">nature</span>
+                        Start Planning
                     </a>
                 </div>
-            </div>
-        </section>
-    </main>
-    <footer id="garden-footer">
-        <!-- Footer content will be populated by footer.js -->
-    </footer>
-</body>
+                <div>
+                    <img src="images/hero-garden.webp" alt="Beautiful home garden with various plants" loading="lazy">
+                </div>
+            </section>
+            <section id="benefits">
+                <h2>Why Garden Planning Matters</h2>
+                <div>
+                    <div>
+                        <span class="material-icons">wb_sunny</span>
+                        <h3>Climate Smart</h3>
+                        <p>Get recommendations based on your specific climate zone and seasonal patterns for optimal
+                            plant growth.</p>
+                    </div>
+                    <div>
+                        <span class="material-icons">schedule</span>
+                        <h3>Perfect Timing</h3>
+                        <p>Know exactly when to plant, water, and harvest with personalized care schedules.</p>
+                    </div>
+                    <div>
+                        <span class="material-icons">eco</span>
+                        <h3>Sustainable Growing</h3>
+                        <p>Promote eco-friendly gardening practices that benefit both your plants and the environment.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="how-to-use">
+                <h2>How to Use Garden Planner</h2>
+                <div>
+                    <div>
+                        <div>1</div>
+                        <div>
+                            <h3>Choose Your Location</h3>
+                            <p>Select your climate zone manually or use geolocation for automatic detection.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>2</div>
+                        <div>
+                            <h3>Discover Plants</h3>
+                            <p>Browse climate-appropriate plants with detailed growing information and care
+                                instructions.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>3</div>
+                        <div>
+                            <h3>Save Your Favorites</h3>
+                            <p>Create your personal garden collection and track care schedules for each plant.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="quick-start">
+                <div>
+                    <h2>Ready to Start Gardening?</h2>
+                    <p>Join thousands of gardeners who have transformed their outdoor spaces with smart planning and
+                        expert guidance.</p>
+                    <div>
+                        <a href="planner.html" class="primary-button">
+                            <span class="material-icons">search</span>
+                            Find Plants
+                        </a>
+                        <a href="my-garden.html" class="secondary-button">
+                            <span class="material-icons">bookmark</span>
+                            My Garden
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>        <footer>
+            <!-- Footer content will be populated by footer.js -->
+        </footer>
+    </body>
+
 </html>

@@ -1,19 +1,10 @@
 function loadHeader() {
-    const header = document.getElementById('garden-header');
-    const nav = document.getElementById('garden-nav');
+    const header = document.querySelector('header');
+    const nav = document.querySelector('header nav');
     
     if (!header || !nav) return;
 
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
-    const headerContent = `
-        <div>
-            <div>
-                <span class="material-icons">eco</span>
-                <span>Garden Planner</span>
-            </div>
-        </div>
-    `;
     
     const navContent = `
         <button aria-label="Toggle menu">
@@ -33,10 +24,11 @@ function loadHeader() {
     const mainDiv = document.createElement('div');
     
     const logoDiv = document.createElement('div');
+    logoDiv.className = 'header-logo';
     logoDiv.innerHTML = `
         <div>
             <span class="material-icons">eco</span>
-            <span>Garden Planner</span>
+            <span class="header-title">Garden Planner</span>
         </div>
     `;
     mainDiv.appendChild(logoDiv);
@@ -49,8 +41,8 @@ function loadHeader() {
 }
 
 function initializeMobileMenu() {
-    const menuToggle = document.querySelector('#garden-header nav button');
-    const navLinks = document.querySelector('#garden-nav ul');
+    const menuToggle = document.querySelector('nav button');
+    const navLinks = document.querySelector('nav ul');
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {

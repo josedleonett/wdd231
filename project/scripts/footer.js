@@ -1,7 +1,7 @@
 // Dynamic footer loading for Garden Planner
 
 function loadFooter() {
-    const footer = document.getElementById('garden-footer');
+    const footer = document.querySelector('footer');
     
     if (!footer) return;
 

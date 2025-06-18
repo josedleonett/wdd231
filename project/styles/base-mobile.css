@@ -1,11 +1,11 @@
 /* Mobile responsive styles */
 
 @media (max-width: 768px) {
-  #garden-nav button {
+  nav button {
     display: block;
   }
 
-  #garden-nav ul {
+  nav ul {
     position: absolute;
     top: 100%;
     left: 0;
@@ -21,18 +21,18 @@
     transition: all var(--transition-speed);
   }
 
-  #garden-nav ul.active {
+  nav ul.active {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
   }
 
-  #garden-nav ul li {
+  nav ul li {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.5rem 0;
   }
 
-  #garden-nav ul li:last-child {
+  nav ul li:last-child {
     border-bottom: none;
   }
 
@@ -161,16 +161,15 @@
   .plant-details-dialog .dialog-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
-  }
+    gap: 1rem;  }
 }
 
 @media (max-width: 480px) {
-  #garden-header > div {
+  header > div {
     padding: 0.5rem 1rem;
   }
 
-  #garden-header > div > div:first-child span:last-child {
+  header > div > div:first-child span:last-child {
     font-size: var(--font-size-base);
   }
 

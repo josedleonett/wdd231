@@ -136,12 +136,11 @@ a:hover, a:focus {
 header {
   background-color: var(--color-bg-section);
   border-bottom: 3px solid var(--color-primary);
-  position: sticky;
-  top: 0;
+  position: sticky;  top: 0;
   z-index: 100;
 }
 
-#garden-header > div {
+header > div {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1rem;
@@ -150,56 +149,56 @@ header {
   align-items: center;
 }
 
-#garden-header > div > div:first-child {
+header > div > div:first-child {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-#garden-header > div > div:first-child span:last-child {
+header > div > div:first-child span:last-child {
   font-size: var(--font-size-lg);
   font-family: var(--font-heading);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary-dark);
 }
 
-#garden-header .material-icons {
+header .material-icons {
   color: var(--color-primary-dark);
   font-size: 2rem;
 }
 
 /* Navigation */
-#garden-nav button {
+nav button {
   background: none;
   border: none;
   cursor: pointer;
   display: none;
 }
 
-#garden-nav button .material-icons {
+nav button .material-icons {
   font-size: 1.5rem;
   color: var(--color-primary-dark);
 }
 
-#garden-nav ul {
+nav ul {
   display: flex;
   list-style: none;
   gap: 2rem;
 }
 
-#garden-nav ul a {
+nav ul a {
   font-weight: var(--font-weight-extra-bold);
   color: var(--color-text-main);
   padding: 0.5rem 0;
   position: relative;
 }
 
-#garden-nav ul a.active,
-#garden-nav ul a:hover {
+nav ul a.active,
+nav ul a:hover {
   color: var(--color-text-main);
 }
 
-#garden-nav ul a.active::after {
+nav ul a.active::after {
   content: '';
   position: absolute;
   bottom: -3px;
