@@ -1,5 +1,5 @@
 /* Hero section */
-.hero {
+#hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
@@ -8,19 +8,19 @@
   background: linear-gradient(135deg, var(--color-bg-main) 0%, var(--color-bg-section) 100%);
 }
 
-.hero-content h2 {
+#hero > div:first-child h1 {
   font-size: var(--font-size-xxl);
   margin-bottom: 1.5rem;
   color: var(--color-primary-dark);
 }
 
-.hero-content p {
+#hero > div:first-child p {
   font-size: var(--font-size-md);
   margin-bottom: 2rem;
   color: var(--color-text-secondary);
 }
 
-.hero-image img {
+#hero > div:last-child img {
   width: 100%;
   height: auto;
   border-radius: var(--border-radius);
@@ -28,24 +28,24 @@
 }
 
 /* Benefits section */
-.benefits {
+#benefits {
   background-color: var(--color-bg-section);
   border-radius: var(--border-radius);
   margin: 2rem 1rem;
 }
 
-.benefits h2 {
+#benefits h2 {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.benefits-grid {
+#benefits > div {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
-.benefit-card {
+#benefits > div > div {
   background-color: var(--color-bg-main);
   padding: 2rem;
   border-radius: var(--border-radius);
@@ -54,32 +54,32 @@
   transition: transform var(--transition-speed);
 }
 
-.benefit-card:hover {
+#benefits > div > div:hover {
   transform: translateY(-4px);
 }
 
-.benefit-card .material-icons {
+#benefits > div > div .material-icons {
   font-size: 3rem;
   color: var(--color-primary-dark);
   margin-bottom: 1rem;
 }
 
-.benefit-card h3 {
+#benefits > div > div h3 {
   margin-bottom: 1rem;
   color: var(--color-primary-dark);
 }
 
 /* How to use section */
-.how-to-use {
+#how-to-use {
   margin: 3rem 1rem;
 }
 
-.how-to-use h2 {
+#how-to-use h2 {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.steps {
+#how-to-use > div {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -87,7 +87,7 @@
   margin: 0 auto;
 }
 
-.step {
+#how-to-use > div > div {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
@@ -96,7 +96,7 @@
   border-radius: var(--border-radius);
 }
 
-.step-number {
+#how-to-use > div > div > div:first-child {
   background-color: var(--color-primary);
   color: white;
   width: 3rem;
@@ -110,13 +110,13 @@
   flex-shrink: 0;
 }
 
-.step-content h3 {
+#how-to-use > div > div > div:last-child h3 {
   margin-bottom: 0.5rem;
   color: var(--color-primary-dark);
 }
 
 /* Quick start section */
-.quick-start {
+#quick-start {
   background: var(--color-primary-dark) ;
   color: white;
   text-align: center;
@@ -124,40 +124,40 @@
   border-radius: var(--border-radius);
 }
 
-.quick-start-content h2 {
+#quick-start > div h2 {
   color: white;
   margin-bottom: 1rem;
 }
 
-.quick-start-content p {
+#quick-start > div p {
   color: rgba(255, 255, 255, 0.9);
   font-size: var(--font-size-lg);
   margin-bottom: 2rem;
 }
 
-.quick-start-actions {
+#quick-start > div > div {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.quick-start .primary-button {
+#quick-start .primary-button {
   background-color: white;
   color: var(--color-primary);
 }
 
-.quick-start .primary-button:hover {
+#quick-start .primary-button:hover {
   background-color: var(--color-bg-main);
   color: var(--color-primary-dark);
 }
 
-.quick-start .secondary-button {
+#quick-start .secondary-button {
   border-color: white;
   color: white;
 }
 
-.quick-start .secondary-button:hover {
+#quick-start .secondary-button:hover {
   background-color: white;
   color: var(--color-primary);
 }

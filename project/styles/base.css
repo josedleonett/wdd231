@@ -141,7 +141,7 @@ header {
   z-index: 100;
 }
 
-.header-container {
+#garden-header > div {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1rem;
@@ -150,54 +150,56 @@ header {
   align-items: center;
 }
 
-.logo {
+#garden-header > div > div:first-child {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.logo h1 {
-  margin: 0;
+#garden-header > div > div:first-child span:last-child {
   font-size: var(--font-size-lg);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-dark);
 }
 
-.logo .material-icons {
+#garden-header .material-icons {
   color: var(--color-primary-dark);
   font-size: 2rem;
 }
 
 /* Navigation */
-.menu-toggle {
+#garden-nav button {
   background: none;
   border: none;
   cursor: pointer;
   display: none;
 }
 
-.menu-toggle .material-icons {
+#garden-nav button .material-icons {
   font-size: 1.5rem;
   color: var(--color-primary-dark);
 }
 
-.nav-links {
+#garden-nav ul {
   display: flex;
   list-style: none;
   gap: 2rem;
 }
 
-.nav-links a {
+#garden-nav ul a {
   font-weight: var(--font-weight-extra-bold);
   color: var(--color-text-main);
   padding: 0.5rem 0;
   position: relative;
 }
 
-.nav-links a.active,
-.nav-links a:hover {
+#garden-nav ul a.active,
+#garden-nav ul a:hover {
   color: var(--color-text-main);
 }
 
-.nav-links a.active::after {
+#garden-nav ul a.active::after {
   content: '';
   position: absolute;
   bottom: -3px;
@@ -224,7 +226,7 @@ footer {
   margin-top: 3rem;
 }
 
-.footer-content {
+footer > div {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2rem 1rem;
@@ -233,25 +235,25 @@ footer {
   gap: 2rem;
 }
 
-.footer-section h3 {
+footer > div > div h3 {
   color: white;
   margin-bottom: 1rem;
 }
 
-.footer-section p,
-.footer-section a {
+footer > div > div p,
+footer > div > div a {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.footer-section a:hover {
+footer > div > div a:hover {
   color: white;
 }
 
-.footer-section ul {
+footer > div > div ul {
   list-style: none;
 }
 
-.footer-section ul li {
+footer > div > div ul li {
   margin-bottom: 0.5rem;
 }
 

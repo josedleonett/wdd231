@@ -9,103 +9,88 @@
     <meta property="og:description" content="Plan your perfect garden with climate-based recommendations and personalized care schedules.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://josedleonett.github.io/wdd231/project/index.html">
+    <meta property="og:image" content="https://josedleonett.github.io/wdd231/project/images/hero-garden.webp">
     <title>Garden Planner - Home</title>
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="styles/base.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/base-mobile.css">
-    <script type="module" src="scripts/home.js" defer></script>
+    <script type="module" src="scripts/header.js"></script>
+    <script type="module" src="scripts/footer.js"></script>
+    <script type="module" src="scripts/home.js"></script>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <span class="material-icons">eco</span>
-                <h1>Garden Planner</h1>
-            </div>
-            <nav>
-                <button class="menu-toggle" aria-label="Toggle menu">
-                    <span class="material-icons">menu</span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="planner.html">Planner</a></li>
-                    <li><a href="my-garden.html">My Garden</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header id="garden-header">
+        <!-- Header content will be populated by header.js -->
+        <nav id="garden-nav">
+            <!-- Navigation will be populated by header.js -->
+        </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Plan Your Perfect Garden</h2>
+    <main>        <section id="hero">
+            <div>
+                <h1>Plan Your Perfect Garden</h1>
                 <p>Discover the best plants for your climate zone and create a thriving garden with personalized recommendations and care schedules.</p>
                 <a href="planner.html" class="cta-button">
                     <span class="material-icons">nature</span>
                     Start Planning
                 </a>
             </div>
-            <div class="hero-image">
+            <div>
                 <img src="images/hero-garden.webp" alt="Beautiful home garden with various plants" loading="lazy">
             </div>
-        </section>
-
-        <section class="benefits">
+        </section>        <section id="benefits">
             <h2>Why Garden Planning Matters</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
+            <div>
+                <div>
                     <span class="material-icons">wb_sunny</span>
                     <h3>Climate Smart</h3>
                     <p>Get recommendations based on your specific climate zone and seasonal patterns for optimal plant growth.</p>
                 </div>
-                <div class="benefit-card">
+                <div>
                     <span class="material-icons">schedule</span>
                     <h3>Perfect Timing</h3>
                     <p>Know exactly when to plant, water, and harvest with personalized care schedules.</p>
                 </div>
-                <div class="benefit-card">
+                <div>
                     <span class="material-icons">eco</span>
                     <h3>Sustainable Growing</h3>
                     <p>Promote eco-friendly gardening practices that benefit both your plants and the environment.</p>
                 </div>
             </div>
-        </section>
-
-        <section class="how-to-use">
+        </section>        <section id="how-to-use">
             <h2>How to Use Garden Planner</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
+            <div>
+                <div>
+                    <div>1</div>
+                    <div>
                         <h3>Choose Your Location</h3>
                         <p>Select your climate zone manually or use geolocation for automatic detection.</p>
                     </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
+                <div>
+                    <div>2</div>
+                    <div>
                         <h3>Discover Plants</h3>
                         <p>Browse climate-appropriate plants with detailed growing information and care instructions.</p>
                     </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
+                <div>
+                    <div>3</div>
+                    <div>
                         <h3>Save Your Favorites</h3>
                         <p>Create your personal garden collection and track care schedules for each plant.</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section class="quick-start">
-            <div class="quick-start-content">
+        </section>        <section id="quick-start">
+            <div>
                 <h2>Ready to Start Gardening?</h2>
                 <p>Join thousands of gardeners who have transformed their outdoor spaces with smart planning and expert guidance.</p>
-                <div class="quick-start-actions">
+                <div>
                     <a href="planner.html" class="primary-button">
                         <span class="material-icons">search</span>
                         Find Plants
@@ -118,27 +103,8 @@
             </div>
         </section>
     </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Garden Planner</h3>
-                <p>Your digital gardening companion for sustainable growing.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="planner.html">Plant Planner</a></li>
-                    <li><a href="my-garden.html">My Garden</a></li>
-                    <li><a href="#">Attributions</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Project Info</h3>
-                <p><a href="#" target="_blank">Video Demonstration</a></p>
-                <p>&copy; 2025 Jose D. Leonett | WDD 231 Project</p>
-            </div>
-        </div>
+    <footer id="garden-footer">
+        <!-- Footer content will be populated by footer.js -->
     </footer>
 </body>
 </html>

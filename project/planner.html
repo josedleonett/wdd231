@@ -11,30 +11,19 @@
     <title>Plant Planner - Garden Planner</title>
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="styles/base.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/planner.css">
     <link rel="stylesheet" href="styles/base-mobile.css">
-    <script type="module" src="scripts/planner.js" defer></script>
+    <script type="module" src="scripts/header.js"></script>
+    <script type="module" src="scripts/footer.js"></script>
+    <script type="module" src="scripts/planner.js"></script>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <span class="material-icons">eco</span>
-                <h1>Garden Planner</h1>
-            </div>
-            <nav>
-                <button class="menu-toggle" aria-label="Toggle menu">
-                    <span class="material-icons">menu</span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="planner.html" class="active">Planner</a></li>
-                    <li><a href="my-garden.html">My Garden</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header id="garden-header">
+        <!-- Header content will be populated by header.js -->
+        <nav id="garden-nav">
+            <!-- Navigation will be populated by header.js -->
+        </nav>
     </header>
 
     <main>
@@ -172,31 +161,12 @@
             </div>
             <div class="dialog-actions">
                 <button class="dialog-btn secondary" id="details-cancel">Close</button>
-                <button class="dialog-btn primary" id="details-save">Save Plant</button>
-            </div>
+                <button class="dialog-btn primary" id="details-save">Save Plant</button>            </div>
         </div>
     </dialog>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Garden Planner</h3>
-                <p>Your digital gardening companion for sustainable growing.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="planner.html">Plant Planner</a></li>
-                    <li><a href="my-garden.html">My Garden</a></li>
-                    <li><a href="#">Attributions</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Project Info</h3>
-                <p><a href="#" target="_blank">Video Demonstration</a></p>
-                <p>&copy; 2025 Jose D. Leonett | WDD 231 Project</p>
-            </div>
-        </div>
+    <footer id="garden-footer">
+        <!-- Footer content will be populated by footer.js -->
     </footer>
 </body>
 </html>

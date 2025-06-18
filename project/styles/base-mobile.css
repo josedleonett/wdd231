@@ -1,11 +1,11 @@
 /* Mobile responsive styles */
 
 @media (max-width: 768px) {
-  .menu-toggle {
+  #garden-nav button {
     display: block;
   }
 
-  .nav-links {
+  #garden-nav ul {
     position: absolute;
     top: 100%;
     left: 0;
@@ -21,62 +21,61 @@
     transition: all var(--transition-speed);
   }
 
-  .nav-links.active {
+  #garden-nav ul.active {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
   }
 
-  .nav-links li {
+  #garden-nav ul li {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.5rem 0;
   }
 
-  .nav-links li:last-child {
+  #garden-nav ul li:last-child {
     border-bottom: none;
   }
 
   /* Hero section mobile */
-  .hero {
+  #hero {
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 2rem 1rem;
     text-align: center;
   }
 
-  .hero-content h2 {
+  #hero > div:first-child h1 {
     font-size: var(--font-size-xl);
   }
-
-  .hero-image {
+  #hero > div:last-child {
     order: -1;
   }
 
   /* Benefits grid mobile */
-  .benefits-grid {
+  #benefits > div {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
   /* Steps mobile */
-  .step {
+  #how-to-use > div > div {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
 
-  .step-number {
+  #how-to-use > div > div > div:first-child {
     align-self: center;
   }
 
   /* Quick start mobile */
-  .quick-start-actions {
+  #quick-start > div > div {
     flex-direction: column;
     align-items: center;
   }
 
-  .quick-start-actions .primary-button,
-  .quick-start-actions .secondary-button {
+  #quick-start > div > div .primary-button,
+  #quick-start > div > div .secondary-button {
     width: 100%;
     max-width: 280px;
   }
@@ -94,9 +93,8 @@
   section {
     padding: 1.5rem 1rem;
   }
-
   /* Footer mobile */
-  .footer-content {
+  footer > div {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     text-align: center;
@@ -168,35 +166,35 @@
 }
 
 @media (max-width: 480px) {
-  .header-container {
+  #garden-header > div {
     padding: 0.5rem 1rem;
   }
 
-  .logo h1 {
+  #garden-header > div > div:first-child span:last-child {
     font-size: var(--font-size-base);
   }
 
-  .hero {
+  #hero {
     padding: 1.5rem 1rem;
   }
 
-  .hero-content h2 {
+  #hero > div:first-child h1 {
     font-size: var(--font-size-lg);
   }
 
-  .benefit-card {
+  #benefits > div > div {
     padding: 1.5rem;
   }
 
-  .benefit-card .material-icons {
+  #benefits > div > div .material-icons {
     font-size: 2.5rem;
   }
 
-  .step {
+  #how-to-use > div > div {
     padding: 1.5rem;
   }
 
-  .step-number {
+  #how-to-use > div > div > div:first-child {
     width: 2.5rem;
     height: 2.5rem;
     font-size: var(--font-size-base);
@@ -211,34 +209,34 @@
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
-  .hero {
+  #hero {
     grid-template-columns: 1fr 1fr;
     padding: 1.5rem 1rem;
   }
 
-  .hero-image {
+  #hero > div:last-child {
     order: 0;
   }
 
-  .hero-content {
+  #hero > div:first-child {
     text-align: left;
   }
 }
 
 @media (min-width: 1024px) {
-  .hero-content h2 {
+  #hero > div:first-child h1 {
     font-size: 3.5rem;
   }
 
-  .benefits-grid {
+  #benefits > div {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .steps {
+  #how-to-use > div {
     max-width: 1000px;
   }
 
-  .step {
+  #how-to-use > div > div {
     flex-direction: row;
     text-align: left;
   }
@@ -246,7 +244,7 @@
 
 @media (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi) {
-  .hero-image img {
+  #hero > div:last-child img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
   }
