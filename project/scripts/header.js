@@ -4,15 +4,22 @@ function loadHeader() {
 
     if (!header || !nav) return;
 
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const path = window.location.pathname;
+    const currentPage = path.split('/').pop() || 'index.html';
+    const isInPagesFolder = path.includes('/pages/');
+
+    const homeLink = isInPagesFolder ? '../index.html' : 'index.html';
+    const plannerLink = isInPagesFolder ? 'planner.html' : 'pages/planner.html';
+    const myGardenLink = isInPagesFolder ? 'my-garden.html' : 'pages/my-garden.html';
+
     const navContent = `
         <button aria-label="Toggle menu">
             <span class="material-icons">menu</span>
         </button>
         <ul>
-            <li><a href="${currentPage.includes('pages/') ? '../' : ''}index.html" ${currentPage === 'index.html' ? 'class="active"' : ''}>Home</a></li>
-            <li><a href="${currentPage.includes('pages/') ? '' : 'pages/'}planner.html" ${currentPage === 'planner.html' ? 'class="active"' : ''}>Planner</a></li>
-            <li><a href="${currentPage.includes('pages/') ? '' : 'pages/'}my-garden.html" ${currentPage === 'my-garden.html' ? 'class="active"' : ''}>My Garden</a></li>
+            <li><a href="${homeLink}" ${currentPage === 'index.html' ? 'class="active"' : ''}>Home</a></li>
+            <li><a href="${plannerLink}" ${currentPage === 'planner.html' ? 'class="active"' : ''}>Planner</a></li>
+            <li><a href="${myGardenLink}" ${currentPage === 'my-garden.html' ? 'class="active"' : ''}>My Garden</a></li>
         </ul>
     `;
 
