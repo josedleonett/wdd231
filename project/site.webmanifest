@@ -1,0 +1,46 @@
+{
+    "name": "Garden Planner",
+    "short_name": "GardenPlanner",
+    "description": "Plan and manage your garden with personalized recommendations based on your climate",
+    "icons": [
+        {
+            "src": "images/favicon.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "images/favicon.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ],
+    "start_url": "index.html",
+    "scope": "/",
+    "shortcuts": [
+        {
+            "name": "Home",
+            "url": "index.html",
+            "description": "Garden Planner Home Page"
+        },
+        {
+            "name": "Plant Planner",
+            "url": "pages/planner.html",
+            "description": "Plan your garden with personalized recommendations"
+        },
+        {
+            "name": "My Garden",
+            "url": "pages/my-garden.html",
+            "description": "View and manage your saved plants"
+        },
+        {
+            "name": "Site Plan",
+            "url": "pages/site-plan.html",
+            "description": "View the site plan and design information"
+        }
+    ],
+    "theme_color": "#4CAF50",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "any",
+    "categories": ["gardening", "productivity", "utilities"]
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <circle cx="256" cy="256" r="248" fill="#4CAF50" stroke="#388E3C" stroke-width="16"/>
+  
+  <!-- Plant stem -->
+  <path d="M256 400 L256 200" stroke="#795548" stroke-width="16" stroke-linecap="round"/>
+  
+  <!-- Leaves -->
+  <path d="M256 260 Q300 220 340 260" fill="none" stroke="#8BC34A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M256 300 Q300 260 340 300" fill="none" stroke="#8BC34A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M256 340 Q300 300 340 340" fill="none" stroke="#8BC34A" stroke-width="12" stroke-linecap="round"/>
+  
+  <path d="M256 260 Q212 220 172 260" fill="none" stroke="#8BC34A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M256 300 Q212 260 172 300" fill="none" stroke="#8BC34A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M256 340 Q212 300 172 340" fill="none" stroke="#8BC34A" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Flower/top -->
+  <circle cx="256" cy="180" r="40" fill="#FFEB3B"/>
+  <circle cx="256" cy="180" r="20" fill="#FFA000"/>
+</svg>
