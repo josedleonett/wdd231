@@ -1,28 +1,27 @@
 function loadHeader() {
     const header = document.querySelector('header');
     const nav = document.querySelector('header nav');
-    
+
     if (!header || !nav) return;
 
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
     const navContent = `
         <button aria-label="Toggle menu">
             <span class="material-icons">menu</span>
         </button>
         <ul>
-            <li><a href="index.html" ${currentPage === 'index.html' ? 'class="active"' : ''}>Home</a></li>
-            <li><a href="planner.html" ${currentPage === 'planner.html' ? 'class="active"' : ''}>Planner</a></li>
-            <li><a href="my-garden.html" ${currentPage === 'my-garden.html' ? 'class="active"' : ''}>My Garden</a></li>
+            <li><a href="${currentPage.includes('pages/') ? '../' : ''}index.html" ${currentPage === 'index.html' ? 'class="active"' : ''}>Home</a></li>
+            <li><a href="${currentPage.includes('pages/') ? '' : 'pages/'}planner.html" ${currentPage === 'planner.html' ? 'class="active"' : ''}>Planner</a></li>
+            <li><a href="${currentPage.includes('pages/') ? '' : 'pages/'}my-garden.html" ${currentPage === 'my-garden.html' ? 'class="active"' : ''}>My Garden</a></li>
         </ul>
     `;
-    
+
     nav.innerHTML = navContent;
-    
+
     header.innerHTML = '';
-    
+
     const mainDiv = document.createElement('div');
-    
+
     const logoDiv = document.createElement('div');
     logoDiv.className = 'header-logo';
     logoDiv.innerHTML = `
@@ -32,11 +31,11 @@ function loadHeader() {
         </div>
     `;
     mainDiv.appendChild(logoDiv);
-    
+
     mainDiv.appendChild(nav);
-    
+
     header.appendChild(mainDiv);
-    
+
     initializeMobileMenu();
 }
 
@@ -47,10 +46,10 @@ function initializeMobileMenu() {
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            
+
             const isExpanded = navLinks.classList.contains('active');
             menuToggle.setAttribute('aria-expanded', isExpanded);
-            
+
             const icon = menuToggle.querySelector('.material-icons');
             icon.textContent = isExpanded ? 'close' : 'menu';
         });
