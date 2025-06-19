@@ -1,6 +1,5 @@
 const API_CONFIG = {
-    TREFLE_TOKEN: 'ckC5oFHH4Z9J1O0R9gw14s1PuyhQZerUJCKc4IGWmWc',
-    BASE_URL: 'https://trefle.io/api/v1',
+    GBIF_API_URL: 'https://api.gbif.org/v1',
     FALLBACK_DATA_URL: './data/fallback-plants.json'
 };
 
@@ -28,19 +27,18 @@ class PlantAPI {
         }
 
         const params = new URLSearchParams({
-            token: API_CONFIG.TREFLE_TOKEN,
-            page_size: 20,
+            limit: 20,
             ...this.buildAPIFilters(filters)
         });
 
-        const response = await fetch(`${API_CONFIG.BASE_URL}/plants?${params}`);
+        const response = await fetch(`${API_CONFIG.GBIF_API_URL}/species/search?${params}`);
         
         if (!response.ok) {
             throw new Error(`API request failed: ${response.status}`);
         }
 
         const data = await response.json();
-        const processedData = this.processAPIData(data.data);
+        const processedData = this.processAPIData(data.results);
         
         this.cache.set(cacheKey, processedData);
         return processedData;
@@ -60,40 +58,87 @@ class PlantAPI {
     }
 
     buildAPIFilters(filters) {
-        const apiFilters = {};
+        const apiFilters = {
+            rank: "SPECIES",
+            highertaxonKey: "6" // Plants kingdom taxon key in GBIF
+        };
         
-        if (filters.climateZone) {
-            const zoneMapping = {
-                'tropical': 'tropical',
-                'subtropical': 'subtropical', 
-                'temperate': 'temperate',
-                'cold': 'cold',
-                'arid': 'dry',
-                'mediterranean': 'mediterranean'
-            };
-            apiFilters.filter_climate = zoneMapping[filters.climateZone];
+        if (filters.search) {
+            apiFilters.q = filters.search;
         }
 
         if (filters.plantType) {
-            apiFilters.filter_category = filters.plantType;
+            const taxonomyMapping = {
+                'vegetable': 'Vegetables',
+                'herb': 'Herbs',
+                'flower': 'Flowering plants',
+                'fruit': 'Fruits',
+                'tree': 'Trees'
+            };
+            
+            if (taxonomyMapping[filters.plantType]) {
+                apiFilters.q = apiFilters.q ? 
+                    `${apiFilters.q} ${taxonomyMapping[filters.plantType]}` : 
+                    taxonomyMapping[filters.plantType];
+            }
         }
 
         return apiFilters;
     }
 
-    processAPIData(plants) {
-        return plants.map(plant => ({
-            id: plant.id,
-            commonName: plant.common_name || 'Unknown',
-            scientificName: plant.scientific_name || '',
-            imageUrl: plant.image_url || null,
-            plantType: this.determinePlantType(plant),
-            difficulty: this.determineDifficulty(plant),
-            season: this.determineSeason(plant),
-            wateringFrequency: plant.main_species?.specifications?.average_height || 'Moderate',
-            sunRequirements: plant.main_species?.growth?.light || 'Full sun',
-            description: plant.main_species?.specifications?.toxicity || 'No description available',
-            careInstructions: this.generateCareInstructions(plant)
+    async fetchSpeciesDetails(speciesKey) {
+        try {
+            const response = await fetch(`${API_CONFIG.GBIF_API_URL}/species/${speciesKey}`);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch species details: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Error fetching species details:', error);
+            return null;
+        }
+    }
+
+    async fetchSpeciesImage(scientificName) {
+        try {
+            const encodedName = encodeURIComponent(scientificName);
+            const response = await fetch(
+                `${API_CONFIG.GBIF_API_URL}/occurrence/search?scientificName=${encodedName}&mediaType=StillImage&limit=1`
+            );
+            
+            if (!response.ok) {
+                throw new Error(`Failed to fetch images: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            if (data.results && data.results.length > 0 && data.results[0].media) {
+                const media = data.results[0].media.find(m => m.type === 'StillImage');
+                return media ? media.identifier : null;
+            }
+            return null;
+        } catch (error) {
+            console.error('Error fetching species image:', error);
+            return null;
+        }
+    }
+
+    processAPIData(species) {
+        return Promise.all(species.map(async (species) => {
+            const imageUrl = await this.fetchSpeciesImage(species.scientificName);
+            
+            return {
+                id: species.key,
+                commonName: species.vernacularName || species.canonicalName || 'Unknown',
+                scientificName: species.scientificName || '',
+                imageUrl: imageUrl,
+                plantType: this.determinePlantType(species),
+                difficulty: this.determineDifficulty(species),
+                season: this.determineSeason(species),
+                wateringFrequency: 'Moderate',
+                sunRequirements: 'Full sun',
+                description: `${species.scientificName} is a species of the ${species.genus} genus in the ${species.family} family.`,
+                careInstructions: this.generateCareInstructions(species)
+            };
         }));
     }
 
@@ -135,30 +180,36 @@ class PlantAPI {
         return filtered;
     }
 
-    determinePlantType(plant) {
-        const name = plant.common_name?.toLowerCase() || '';
+    determinePlantType(species) {
+        const name = species.vernacularName?.toLowerCase() || species.canonicalName?.toLowerCase() || '';
+        
         if (name.includes('tomato') || name.includes('lettuce') || name.includes('carrot')) return 'vegetable';
         if (name.includes('basil') || name.includes('mint') || name.includes('oregano')) return 'herb';
         if (name.includes('rose') || name.includes('tulip') || name.includes('daisy')) return 'flower';
         if (name.includes('apple') || name.includes('orange') || name.includes('berry')) return 'fruit';
         if (name.includes('oak') || name.includes('pine') || name.includes('maple')) return 'tree';
+        
+        // Check family and order info
+        if (species.family === 'Poaceae' || species.family === 'Rosaceae') return 'herb';
+        if (species.order === 'Rosales') return 'flower';
+        
         return 'other';
     }
 
-    determineDifficulty(plant) {
+    determineDifficulty(species) {
         const common = ['tomato', 'lettuce', 'basil', 'mint', 'marigold'];
-        const name = plant.common_name?.toLowerCase() || '';
+        const name = species.vernacularName?.toLowerCase() || '';
         
         if (common.some(c => name.includes(c))) return 'easy';
         return Math.random() > 0.5 ? 'moderate' : 'challenging';
     }
 
-    determineSeason(plant) {
+    determineSeason(species) {
         const seasons = ['spring', 'summer', 'fall'];
         return [seasons[Math.floor(Math.random() * seasons.length)]];
     }
 
-    generateCareInstructions(plant) {
+    generateCareInstructions(species) {
         return `Water regularly and provide adequate sunlight. Monitor for pests and diseases.`;
     }
 }
